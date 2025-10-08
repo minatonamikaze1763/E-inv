@@ -265,6 +265,7 @@ const actualBuyerMap = {
     Em: null,
   },
 };
+/*
 function sortBuyerMapByName(buyerMap) {
   const selectEntry = Object.values(buyerMap).find(b => b.Gstin === "Select");
   const sortedOthers = Object.values(buyerMap)
@@ -275,7 +276,16 @@ function sortBuyerMapByName(buyerMap) {
     ...sortedOthers.map(buyer => [buyer.LglNm, buyer])
   ]);
 }
-
+*/
+function sortBuyerMapByName(buyerMap) {
+  const selectEntry = Object.values(buyerMap).find(b => b.Gstin === "Select");
+  const sortedOthers = Object.values(buyerMap)
+    .filter(b => b.Gstin !== "Select")
+    .sort((a, b) => a.LglNm.localeCompare(b.LglNm));
+  
+  // Keep "Select" entry first
+  return [selectEntry, ...sortedOthers];
+}
 const buyerMap = sortBuyerMapByName(actualBuyerMap);
 const allowed = [
   "36AFHFS4680J1ZH",
