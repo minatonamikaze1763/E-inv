@@ -293,7 +293,7 @@ const actualBuyerMap = {
     LglNm: "SRI LAXMINARASIMHA MOTORS",
     Addr1: "19/41,,OPPOSITE SBH,RAMAYAMPET",
     Addr2: "RAMAYAMPET",
-    Loc: "RAMAYAMPET",
+    Loc: "MEDAK",
     Pin: 502110,
     Pos: "36",
     Stcd: "36",
