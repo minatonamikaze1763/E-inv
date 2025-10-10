@@ -288,7 +288,7 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
-    "36ACMFS9275M2Z2": {
+  "36ACMFS9275M2Z2": {
     Gstin: "36ACMFS9275M2Z2",
     LglNm: "SRI LAXMINARASIMHA MOTORS",
     Addr1: "19/41,,OPPOSITE SBH,RAMAYAMPET",
@@ -300,20 +300,8 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
-
+  
 };
-/*
-function sortBuyerMapByName(buyerMap) {
-  const selectEntry = Object.values(buyerMap).find(b => b.Gstin === "Select");
-  const sortedOthers = Object.values(buyerMap)
-    .filter(b => b.Gstin !== "Select")
-    .sort((a, b) => a.LglNm.localeCompare(b.LglNm));
-  return Object.fromEntries([
-    [selectEntry.LglNm, selectEntry], // "Please select the buyer" first
-    ...sortedOthers.map(buyer => [buyer.LglNm, buyer])
-  ]);
-}
-*/
 function sortBuyerMapByName(buyerMap) {
   const selectEntry = Object.values(buyerMap).find(b => b.Gstin === "Select");
   const sortedOthers = Object.values(buyerMap)
@@ -563,7 +551,7 @@ function buildBuyerDropdown() {
     const buyer = buyerMap[key];
     const option = document.createElement("option");
     option.value = key;
-    option.textContent = `${buyer.Gstin} - ${buyer.LglNm}`;
+    option.textContent = `${buyer.LglNm} - ${buyer.Gstin}`;
     buyerSelector.appendChild(option);
   }
   const bulkBuyer = document.getElementById("bulkBuyerSelect");
@@ -572,7 +560,7 @@ function buildBuyerDropdown() {
     const buyer = buyerMap[key];
     const option2 = document.createElement("option");
     option2.value = key;
-    option2.textContent = `${buyer.Gstin} - ${buyer.LglNm}`;
+    option2.textContent = `${buyer.LglNm} - ${buyer.Gstin}`;
     bulkBuyer.appendChild(option2);
   }
 }
