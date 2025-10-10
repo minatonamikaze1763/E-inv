@@ -3,6 +3,7 @@ const users = {
   savera: {
     username: "14929",
     password: "Sep@2025#",
+    company : "tvs",
     details: {
       Gstin: "36AFHFS4680J1ZH",
       LglNm: "SAVERA AUTOCRAFT LLP",
@@ -20,6 +21,7 @@ const users = {
   laxmi: {
     username: "14517",
     password: "Oct@2025#",
+    company : "tvs",
     details: {
       Gstin: "36AAFCL0077Q1Z1",
       LglNm: "LAXMI AUTO AGENCIES PRIVATE LIMITED",
@@ -34,6 +36,25 @@ const users = {
     },
     keys : ["1",'laxmi-1','laxmi_1']
   },
+   devi: {
+    username: "14298",
+    password: "Devi@2025#",
+    company : "Royal Enfield",
+    details: {
+      Gstin: "36AAWFD9162A1Z7",
+      LglNm: "DEVI AUTOMOBILES",
+      Addr1: "Flat no 286,MADHAVA NAGAR,Nizamabad",
+      Addr2: "NIZAMABAD",
+      Loc: "NIZAMABAD",
+      Pin: 503230,
+      Pos: "36",
+      Stcd: "36",
+      Ph: 7207013435,
+      Em: null,
+    },
+    keys : ["3",'devi-3','devi-3']
+  },
+
 };
 
 // --- Helpers ---
