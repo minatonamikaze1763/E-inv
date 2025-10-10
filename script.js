@@ -288,6 +288,19 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
+    "36ACMFS9275M2Z2": {
+    Gstin: "36ACMFS9275M2Z2",
+    LglNm: "SRI LAXMINARASIMHA MOTORS",
+    Addr1: "19/41,,OPPOSITE SBH,RAMAYAMPET",
+    Addr2: "RAMAYAMPET",
+    Loc: "RAMAYAMPET",
+    Pin: 502110,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null,
+  },
+
 };
 /*
 function sortBuyerMapByName(buyerMap) {
