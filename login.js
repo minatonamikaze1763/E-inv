@@ -3,7 +3,7 @@ const users = {
   savera: {
     username: "14929",
     password: "Sep@2025#",
-    company : "tvs",
+    company: "tvs",
     details: {
       Gstin: "36AFHFS4680J1ZH",
       LglNm: "SAVERA AUTOCRAFT LLP",
@@ -16,12 +16,12 @@ const users = {
       Ph: 9866530909,
       Em: null,
     },
-    keys : ["2","savera-1",'savera_1']
+    keys: ["2", "savera-1", 'savera_1']
   },
   laxmi: {
     username: "14517",
     password: "Oct@2025#",
-    company : "tvs",
+    company: "tvs",
     details: {
       Gstin: "36AAFCL0077Q1Z1",
       LglNm: "LAXMI AUTO AGENCIES PRIVATE LIMITED",
@@ -34,12 +34,12 @@ const users = {
       Ph: 9440090930,
       Em: null,
     },
-    keys : ["1",'laxmi-1','laxmi_1']
+    keys: ["1", 'laxmi-1', 'laxmi_1']
   },
-   devi: {
+  devi: {
     username: "14298",
     password: "Devi@2025#",
-    company : "Royal Enfield",
+    company: "Royal Enfield",
     details: {
       Gstin: "36AAWFD9162A1Z7",
       LglNm: "DEVI AUTOMOBILES",
@@ -52,9 +52,9 @@ const users = {
       Ph: 7207013435,
       Em: null,
     },
-    keys : ["3",'devi-3','devi-3']
+    keys: ["3", 'devi-3', 'devi-3']
   },
-
+  
 };
 
 // --- Helpers ---

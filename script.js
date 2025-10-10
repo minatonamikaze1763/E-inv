@@ -264,6 +264,30 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
+  "36AADCI6523Q1Z3": {
+    Gstin: "36AADCI6523Q1Z3",
+    LglNm: "IDFC FIRST BANK LIMITED",
+    Addr1: "Punnaiah Plaza,Plot No 83 and 84,Road No 2,Hyderabad",
+    Addr2: "Hyderabad",
+    Loc: "Hyderabad",
+    Pin: 500034,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null,
+  },
+  "36AAACK5934A1ZW": {
+    Gstin: "36AAACK5934A1ZW",
+    LglNm: "KOTAK MAHINDRA PRIME LIMITED",
+    Addr1: "BRR COMPLEX   6-3-1107,1108-301 3RD FLOOR,RAJ BHAVAN ROAD SOMAJIGUDA,HYDERABAD",
+    Addr2: "Hyderabad",
+    Loc: "Hyderabad",
+    Pin: 500082,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null,
+  },
 };
 /*
 function sortBuyerMapByName(buyerMap) {
