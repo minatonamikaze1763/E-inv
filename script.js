@@ -1,4 +1,49 @@
 let itemCount = 0;
+async function fetchBuyerDetails(gstin) {
+  try {
+    const gstinSearchUrl = `https://sheet.gstincheck.co.in/check/e212a03b53aa6a2e4d760d222b939d59/${gstin}`;
+    const response = await fetch(gstinSearchUrl);
+    const data = await response.json();
+    
+    if (!data.flag || !data.data) {
+      alert("GSTIN not found or invalid response");
+      console.error("GSTIN not found or invalid response");
+      return null;
+    }
+    
+    const buyerData = data.data;
+    // Extract pin code and state code (first two digits of GSTIN)
+    const address1 = buyerData.pradr?.adr || "";
+    const address2 = buyerData.pradr?.addr.dst || "";
+    const pin = parseInt(buyerData.pradr?.addr.pncd) || null;
+    const stcd = gstin.slice(0, 2); // first 2 digits of GSTIN = state code
+    
+    // Build object in your ledger format
+    const buyerObj = {
+      [gstin]: {
+        Gstin: gstin,
+        LglNm: buyerData.lgnm || buyerData.tradeNam || "N/A",
+        Addr1: address1,
+        Addr2: address2,
+        Loc: address2,
+        Pin: pin,
+        Pos: stcd,
+        Stcd: stcd,
+        Ph: null,
+        Em: null
+      }
+    };
+    
+    return buyerObj;
+  } catch (err) {
+    alert("Error");
+    console.error("Error fetching GSTIN details:", err);
+    return null;
+  }
+}
+
+// Example usage:
+//fetchBuyerDetails("36AAFCL0077Q1Z1").then(console.log);
 const actualBuyerMap = {
   0: {
     Gstin: "Select",
@@ -774,7 +819,6 @@ const isServer = {
     return currentDate < till;
   }
 };
-console.log("error")
 let createdInvoices = [];
 
 function addItem() {
