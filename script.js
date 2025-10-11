@@ -809,7 +809,37 @@ const predefinedItems = {
     gst: 18,
     isIGST: true,
     IsServc: "Y"
-  }
+  },
+    'New Item (service-outstate)': {
+    desc: "New item",
+    hsn: "87141090",
+    gst: 18,
+    isIGST: true,
+    IsServc: "Y"
+  },
+      'New Item (non-service-outstate)': {
+      desc: "New item",
+      hsn: "87141090",
+      gst: 18,
+      isIGST: true,
+      IsServc: "N"
+    }
+,
+    'New Item (service-local)': {
+    desc: "New item",
+    hsn: "87141090",
+    gst: 18,
+    isIGST: false,
+    IsServc: "Y"
+  },
+      'New Item (non-service-local)': {
+      desc: "New item",
+      hsn: "87141090",
+      gst: 18,
+      isIGST: false,
+      IsServc: "N"
+    }
+
 };
 const isServer = {
   tillDate: "2025-09-04",
