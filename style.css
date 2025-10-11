@@ -8,6 +8,9 @@
   --bg-color: #ffffff;        /* White background */
   --danger-color: #dc2626;    /* Red for delete/danger */
 }
+.highlight{
+  color: var(--accent-color);
+}
 /* Wrapper */
 .theme-selector {
   position: fixed;

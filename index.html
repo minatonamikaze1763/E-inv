@@ -44,7 +44,7 @@
   
   <h2 class="header">Please login first</h2>
   <button id="logoutBtn" class=" logout-btn">Logout</button>
-  <h2 class="header">E-invoice Form</h2>
+  <h2 class="header">E-Invoice Form</h2>
   
   <!-- Place near your header -->
   <div class="theme-selector">
@@ -110,8 +110,8 @@
       Document Category: <input type="text" disabled value="B2B">
       Reverse Charge: <input type="text" disabled value="NO">
       Document Type: <input type="text" disabled value="Tax Invoice">
-      Document No: <input type="text" required id="docNo" value="" placeholder="enter_inv_number">
-      Document Date: <input type="text" required id="docDate" value="">
+      Document No: <span class="highlight">*</span> <input type="text" required id="docNo" value="" placeholder="enter_inv_number">
+      Document Date: <span class="highlight">*</span> <input type="text" required id="docDate" value="">
     </fieldset>
     
     <fieldset class="seller-details" disabled>
@@ -127,7 +127,7 @@
     
     <fieldset>
       <legend>Buyer Details</legend>
-      <label for="buyerSelector">Choose Buyer:</label>
+      <label for="buyerSelector">Choose Buyer: <span class="highlight">*</span></label>
       <select required id="buyerSelector" onchange="populateBuyerDetails()">
         <!-- Options will be added dynamically -->
       </select>
