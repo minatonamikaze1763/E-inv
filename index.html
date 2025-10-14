@@ -90,16 +90,16 @@
       <div class="field">
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
-           <p id="login-status"> </p>
-      <button type="submit" class="btn">Login</button>
-
+        <p id="login-status"> </p>
+        <button type="submit" class="btn">Login</button>
+        
       </div>
       
       <div class="field login-key-container">
         <label for="login-key">Or Login with Key</label>
         <input type="text" id="login-key" name="login-key">
         <p id="login-key-status"> </p>
-      <button type="button" onclick="loginWithKey()" class="btn">Login with Key</button>
+        <button type="button" onclick="loginWithKey()" class="btn">Login with Key</button>
       </div>
       
     </form>
@@ -362,6 +362,7 @@
   <section id="einvoice-features" aria-labelledby="einvoice-title">
     <h2 id="einvoice-title">Important Notes</h2>
     <ul>
+      <li><strong>Item visibility based on buyer:</strong> When you select a buyer, the <strong>item list</strong> will automatically display the appropriate items based on whether the transaction is local or outstate.</li>
       <li><strong>No duplicate invoice numbers in a session:</strong> you cannot create invoices that share the same <strong>invoice number</strong> within a single active session.</li>
       
       <li><strong>Buyer–Seller uniqueness enforced:</strong> creating an invoice for the same buyer <em>and</em> the same seller (duplicate buyer-seller pair) is not allowed.</li>

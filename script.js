@@ -413,311 +413,7 @@ const actualBuyerMap = {
     Em: null
   }
 };
-/*
-const actualBuyerMap = {
-  0: {
-    Gstin: "Select",
-    LglNm: "Please select the buyer",
-    Addr1: null,
-    Addr2: null,
-    Loc: null,
-    Pin: null,
-    Pos: null,
-    Stcd: null,
-    Ph: null,
-    Em: null
-  },
-  "33AAACS7032B1ZZ": {
-    Gstin: "33AAACS7032B1ZZ",
-    LglNm: "TVS MOTOR COMPANY LTD",
-    Addr1: "PB NO-4 HARITHA HOSUR",
-    Addr2: "TAMILNADU",
-    Loc: "TAMILNADU",
-    Pin: 600006,
-    Pos: "33",
-    Stcd: "33",
-    Ph: null,
-    Em: null
-  },
-  "29AAACS7032B1ZO": {
-    Gstin: "29AAACS7032B1ZO",
-    LglNm: "TVS MOTOR COMPANY LTD",
-    Addr1: "POST BOX 1 KADAKOLA POST,BYTHALI KARNATAK",
-    Addr2: "KARNATAKA",
-    Loc: "KARNATAKA",
-    Pin: 591287,
-    Pos: "29",
-    Stcd: "29",
-    Ph: null,
-    Em: null
-  },
-  3: {
-    Gstin: "02AAACS7032B1Z4",
-    LglNm: "TVS MOTOR COMPANY LTD",
-    Addr1: "HIMACHAL PRADESH",
-    Addr2: "HIMACHAL PRADESH",
-    Loc: "HIMACHAL PRADESH",
-    Pin: 176052,
-    Pos: "02",
-    Stcd: "02",
-    Ph: null,
-    Em: null
-  },
-  4: {
-    Gstin: "36AAACB5861B1Z1",
-    LglNm: "BERAR FINANCE LTD",
-    Addr1: "2N, 2, WARANGAL CITY CENTER, MULGU ROAD, INDUSTRIAL ETATE,Hanumakonda",
-    Addr2: "WARANGAL",
-    Loc: "WARANGAL",
-    Pin: 503002,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  5: {
-    Gstin: "36AFHFS4680J1ZH",
-    LglNm: "SAVERA AUTOCRAFT LLP",
-    Addr1: "PLOT NO 22/5-3,NH 7",
-    Addr2: "KAMAREDDY",
-    Loc: "KAMAREDDY",
-    Pin: 503111,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  6: {
-    Gstin: "36AAACS7018R1ZU",
-    LglNm: "SHRIRAM FINANCE LIMITED",
-    Addr1: "3-6-478,4TH FLOOR,ANAND ESTATES,LIBERTY ROAD,HIMAYATH NAGAR",
-    Addr2: " 3-6-478,4TH FLOOR,ANAND ESTATES,LIBERTY ROAD,HIMAYATH NAGAR",
-    Loc: "HYDERABAD",
-    Pin: 500029,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  7: {
-    Gstin: "36AADCT0724A1ZY",
-    LglNm: "TVS CREDIT SERVICES LIMITED",
-    Addr1: "KARIMNAGAR",
-    Addr2: "KARIMNAGAR",
-    Loc: "KARIMNAGAR",
-    Pin: 505001,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  8: {
-    Gstin: "33AAJFH7551C1ZL",
-    LglNm: "HARITA INSURANCE BROKING LLP",
-    Addr1: "NO 29,JAYALAKSHMI ESTATES,SECOND FLOOR,HADDOWS ROAD,NANGAMBAKKAM,CHENNAI",
-    Addr2: "CHENNAI",
-    Loc: "CHENNAI",
-    Pin: 600006,
-    Pos: "33",
-    Stcd: "33",
-    Ph: null,
-    Em: null
-  },
-  9: {
-    Gstin: "36BPSPK8565G1Z6",
-    LglNm: "SRI SAI MOTORS",
-    Addr1: "3-39/4/E2,BANSWADA ROAD,PITLAM",
-    Addr2: "PITLAM",
-    Loc: "PITLAM",
-    Pin: 503310,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  10: {
-    Gstin: "36AAKCA3283E1ZQ",
-    LglNm: "ADARSHA MOTOR SALES PRIVATE LIMITED",
-    Addr1: "8-6-301/18,BYPASS ROAD,KARIMNAGAR",
-    Addr2: "KARIMNAGAR",
-    Loc: "KARIMNAGAR",
-    Pin: 505001,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  11: {
-    Gstin: "36BCUPG1861Q1ZT",
-    LglNm: "AKSHAYA MOTORS",
-    Addr1: "14-84/1/A,OPPOSITE HANUMAN MANDIR,BALKONDA",
-    Addr2: "BALKONDA",
-    Loc: "BALKONDA",
-    Pin: 503217,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  12: {
-    Gstin: "36AAACI1314G1Z4",
-    LglNm: "INDUSIND BANK LTD",
-    Addr1: "CONSUMER FINANCE DIVISION CONSUMER FINANCE DIVISION",
-    Addr2: "SECUNDERABAD",
-    Loc: "SECUNDERABAD",
-    Pin: 500003,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  13: {
-    Gstin: "27AAECI3370G1ZN",
-    LglNm: "INDICOSMIC CAPITAL PVT.LTD",
-    Addr1: "OFFICE NO 101,BABA HOUSE NEXT TO WEH METRO STATION ANDHERI EAST,MUMBAI",
-    Addr2: "MUMBAI",
-    Loc: "MUMBAI",
-    Pin: 400093,
-    Pos: "27",
-    Stcd: "27",
-    Ph: null,
-    Em: null
-  },
-  14: {
-    Gstin: "36ADWFS8368L1ZT",
-    LglNm: "SRI SIDDARAMESHWARA AUTO MOTIVES",
-    Addr1: "8-135/1,OPP GOVT HIGH SCHOOL,BHIKNOOR MAIN ROAD 8-135/1,OPP GOVT HIGH",
-    Addr2: "SCHOOL,BHIKNOOR MAIN ROAD",
-    Loc: "BHIKNOOR",
-    Pin: 503101,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  15: {
-    Gstin: "36ABVPU7412L1ZS",
-    LglNm: "SRI VINAYAKA MOTORS",
-    Addr1: "JANNEPALLY ROAD   8-194/1/B,MAIN ROAD,NAVIPET",
-    Addr2: "NAVIPET",
-    Loc: "NAVIPET",
-    Pin: 503245,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  16: {
-    Gstin: "36AAMCS8857L2ZC",
-    LglNm: "SBI General Insurance company limited",
-    Addr1: "Ozone Commercial Complex,3rd,Panjagutta Main Road,Hyderabad",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500082,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  17: {
-    Gstin: "36AABCT3518Q1ZX",
-    LglNm: "TATA AIG GENERAL INSURANCE CO LTD",
-    Addr1: "Imperial Towers,H.No 7-1-6-617/A,5th and 6th Floor,GHMC no - 615,616, Ameerpet,Hyderabad,500016",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500016,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  18: {
-    Gstin: "36AAYCA8340E1ZC",
-    LglNm: "ANTARIKSH MOTORS PRIVATE LIMITED",
-    Addr1: "8-1-351/a/11, RAHUL COLONY,Tolichowki Road,Hyderabad,500008",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500008,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  19: {
-    Gstin: "36AAACS7032B1ZT",
-    LglNm: "TVS MOTOR COMPANY LTD",
-    Addr1: "FIRST FLOOR,2-11-30,PLOT NO-11,RUKMINI TOWER,PAIGHA COLONY,SECUNDRABAD",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500003,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null
-  },
-  20: {
-    Gstin: "36AAFCL0077Q1Z1",
-    LglNm: "LAXMI AUTO AGENCIES PRIVATE LIMITED",
-    Addr1: "1-13-173,VINAYAK NAGAR,NIZAMABAD",
-    Addr2: "NIZAMABAD",
-    Loc: "NIZAMABAD",
-    Pin: 503001,
-    Pos: "36",
-    Stcd: "36",
-    Ph: 9440090930,
-    Em: null,
-  },
-  21: {
-    Gstin: "36AAACU5552C1ZK",
-    LglNm: "UNITED INDIA INSURANCE COMPANY LIMITED",
-    Addr1: "UNITED INDIA TOWERS 3 - 5 - 817 818,Floor No 2, OLD MLA QRTRS ROAD,BASHEERBAGH",
-    Addr2: "BASHEERBAGH",
-    Loc: "BASHEERBAGH",
-    Pin: 500029,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null,
-  },
-  "36AADCI6523Q1Z3": {
-    Gstin: "36AADCI6523Q1Z3",
-    LglNm: "IDFC FIRST BANK LIMITED",
-    Addr1: "Punnaiah Plaza,Plot No 83 and 84,Road No 2,Hyderabad",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500034,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null,
-  },
-  "36AAACK5934A1ZW": {
-    Gstin: "36AAACK5934A1ZW",
-    LglNm: "KOTAK MAHINDRA PRIME LIMITED",
-    Addr1: "BRR COMPLEX   6-3-1107,1108-301 3RD FLOOR,RAJ BHAVAN ROAD SOMAJIGUDA,HYDERABAD",
-    Addr2: "Hyderabad",
-    Loc: "Hyderabad",
-    Pin: 500082,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null,
-  },
-  "36ACMFS9275M2Z2": {
-    Gstin: "36ACMFS9275M2Z2",
-    LglNm: "SRI LAXMINARASIMHA MOTORS",
-    Addr1: "19/41,,OPPOSITE SBH,RAMAYAMPET",
-    Addr2: "RAMAYAMPET",
-    Loc: "MEDAK",
-    Pin: 502110,
-    Pos: "36",
-    Stcd: "36",
-    Ph: null,
-    Em: null,
-  },
-  
-};
-*/
+
 function sortBuyerMapByName(buyerMap) {
   const selectEntry = Object.values(buyerMap).find(b => b.Gstin === "Select");
   const sortedOthers = Object.values(buyerMap)
@@ -733,32 +429,60 @@ const allowed = [
   "36AAFCL0077Q1Z1",
 ]
 const predefinedItems = {
-  WARRANTY: {
+  'WARRANTY (outstate)': {
     desc: "WARRANTY",
     hsn: "87141090",
     gst: 28,
     isIGST: true,
     IsServc: "N"
   },
-  "PETROL VEHICLE": {
+  'WARRANTY (local)': {
+    desc: "WARRANTY",
+    hsn: "87141090",
+    gst: 28,
+    isIGST: false,
+    IsServc: "N"
+  },
+  "PETROL VEHICLE (local)": {
     desc: "TVS RAIDER 125",
     hsn: "87112029",
     gst: 18,
     isIGST: false,
     IsServc: "N"
   },
-  "IQUBE VEHICLE": {
+  "IQUBE VEHICLE (local)": {
     desc: "TVS IQUBE",
     hsn: "87112029",
     gst: 5,
     isIGST: false,
     IsServc: "N"
   },
-  "PARTS SALES": {
+  "PETROL VEHICLE (outstate)": {
+    desc: "TVS RAIDER 125",
+    hsn: "87112029",
+    gst: 18,
+    isIGST: true,
+    IsServc: "N"
+  },
+  "IQUBE VEHICLE (outstate)": {
+    desc: "TVS IQUBE",
+    hsn: "87112029",
+    gst: 5,
+    isIGST: true,
+    IsServc: "N"
+  },
+  "PARTS SALES (local)": {
     desc: "PARTS SALES",
     hsn: "84099191",
     gst: 28,
     isIGST: false,
+    IsServc: "N"
+  },
+  "PARTS SALES (outstate)": {
+    desc: "PARTS SALES",
+    hsn: "84099191",
+    gst: 28,
+    isIGST: true,
     IsServc: "N"
   },
   "COMMISION (local)": {
@@ -775,11 +499,18 @@ const predefinedItems = {
     isIGST: true,
     IsServc: "Y"
   },
-  "FSC CLAIM FROM TVSM": {
+  "FSC CLAIM FROM TVSM (outstate)": {
     desc: "FSC CLAIM FROM TVSM",
     hsn: "997161",
     gst: 18,
     isIGST: true,
+    IsServc: "Y"
+  },
+  "FSC CLAIM FROM TVSM (local)": {
+    desc: "FSC CLAIM FROM TVSM",
+    hsn: "997161",
+    gst: 18,
+    isIGST: false,
     IsServc: "Y"
   },
   "INCENTIVE FROM TVSM COMPANY (local)": {
@@ -810,36 +541,35 @@ const predefinedItems = {
     isIGST: true,
     IsServc: "Y"
   },
-    'New Item (service-outstate)': {
+  'New Item (service-outstate)': {
     desc: "New item",
     hsn: "87141090",
     gst: 18,
     isIGST: true,
     IsServc: "Y"
   },
-      'New Item (non-service-outstate)': {
-      desc: "New item",
-      hsn: "87141090",
-      gst: 18,
-      isIGST: true,
-      IsServc: "N"
-    }
-,
-    'New Item (service-local)': {
+  'New Item (non-service-outstate)': {
+    desc: "New item",
+    hsn: "87141090",
+    gst: 18,
+    isIGST: true,
+    IsServc: "N"
+  },
+  'New Item (service-local)': {
     desc: "New item",
     hsn: "87141090",
     gst: 18,
     isIGST: false,
     IsServc: "Y"
   },
-      'New Item (non-service-local)': {
-      desc: "New item",
-      hsn: "87141090",
-      gst: 18,
-      isIGST: false,
-      IsServc: "N"
-    }
-
+  'New Item (non-service-local)': {
+    desc: "New item",
+    hsn: "87141090",
+    gst: 18,
+    isIGST: false,
+    IsServc: "N"
+  }
+  
 };
 const isServer = {
   tillDate: "2025-09-04",
@@ -986,6 +716,40 @@ function populateBuyerDetails() {
   document.getElementById("buyerPin").value = buyer.Pin;
   document.getElementById("buyerPos").value = buyer.Pos;
   document.getElementById("buyerStcd").value = buyer.Stcd;
+  const sellerStCode = document.getElementById("sellerStcd").value;
+  const buyerStCode = buyer.Stcd;
+  
+  updateItemListsByState(sellerStCode, buyerStCode);
+}
+
+function updateItemListsByState(sellerStCode, buyerStCode) {
+  if (!sellerStCode || !buyerStCode) return;
+  
+  const isOutstate = sellerStCode !== buyerStCode;
+  
+  // Filter items based on state condition
+  const filteredItems = Object.entries(predefinedItems)
+    .filter(([key, item]) => item.isIGST === isOutstate)
+    .map(([key]) => key);
+  
+  // Generate options HTML
+  const optionsHTML = `
+    <option value="">-- Select Item --</option>
+    ${filteredItems.map((key) => `<option value="${key}">${key}</option>`).join("")}
+  `;
+  
+  // Update all item selects
+  document.querySelectorAll(".itemSelect").forEach((select) => {
+    const prevValue = select.value; // keep the currently selected one
+    select.innerHTML = optionsHTML;
+    
+    // if the previous value still exists in new list, keep it selected
+    if (filteredItems.includes(prevValue)) {
+      select.value = prevValue;
+    } else {
+      select.value = "";
+    }
+  });
 }
 
 function buildBuyerDropdown() {
