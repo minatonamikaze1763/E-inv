@@ -285,8 +285,8 @@
         // Split into chunks of 15
         const zip = new JSZip();
         let fileCount = 1;
-        for (let i = 0; i < mergedInvoices.length; i += 15) {
-          const chunk = mergedInvoices.slice(i, i + 15);
+        for (let i = 0; i < mergedInvoices.length; i += 20) {
+          const chunk = mergedInvoices.slice(i, i + 20);
           const blobContent = JSON.stringify(chunk, null, 2);
           zip.file(`merged_invoices_part${fileCount}.json`, blobContent);
           fileCount++;
