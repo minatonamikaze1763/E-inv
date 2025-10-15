@@ -776,7 +776,7 @@ function buildBuyerDropdown() {
 
 function checkInvDateRange(dateStr) {
   // Expecting dateStr in dd/mm/yyyy format
-  const [day, month, year] = dateStr.split("/").map(Number);
+  const [year, day, month] = dateStr.split("/").map(Number);
   const inputDate = new Date(year, month - 1, day);
   
   // Today's date (set time to midnight for clean comparison)
@@ -805,6 +805,16 @@ function formatDate(input) {
   return `${day}/${month}/${year}`;
 }
 
+function getDocDate() {
+  const docDateInput = document.getElementById("docDate");
+  const dateValue = docDateInput.value; // "YYYY-MM-DD"
+  if (dateValue) {
+    const [year, month, day] = dateValue.split("-");
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
+  }
+}
+
 function generateJSON() {
   const session = localStorage.getItem("loginSession");
   if (!session) return window.location.reload();
@@ -815,7 +825,6 @@ function generateJSON() {
     return alert("Cannot create invoice for same buyer and seller!")
   }
   if (isServer.down) return alert("E-invoice Json server is down, please try again later!");
-  if (!checkInvDateRange(document.getElementById("docDate").value)) return alert('Invoice date must be within the last 30days including today!')
   if (document.getElementById("buyerGstin").value === "Select") {
     alert("please select the buyer")
     return;
@@ -834,7 +843,7 @@ function generateJSON() {
     .getElementById("docNo")
     .value.replace(/\s+/g, "")
     .trim();
-  
+  let docDate = getDocDate();
   if (createdInvoices.includes(docNumber)) {
     return alert("Cannot create E-Invoice for same invoice Number: " + docNumber);
   }
@@ -852,7 +861,7 @@ function generateJSON() {
     DocDtls: {
       Typ: "INV",
       No: docNumber,
-      Dt: document.getElementById("docDate").value
+      Dt: docDate
     },
     SellerDtls: {
       Gstin: document.getElementById("sellerGstin").value,
@@ -971,17 +980,35 @@ function generateJSON() {
     URL.revokeObjectURL(url);
   }
 }
+
+function setDate() {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const year = today.getFullYear();
+  const docDateInput = document.getElementById("docDate");
+  // ✅ Set value in YYYY-MM-DD format (for <input type="date">)
+  const formattedForInput = `${year}-${month}-${day}`;
+  docDateInput.value = formattedForInput;
+  // Calculate date 30 days ago
+  const pastDate = new Date();
+  pastDate.setDate(today.getDate() - 30);
+  const pastDay = String(pastDate.getDate()).padStart(2, "0");
+  const pastMonth = String(pastDate.getMonth() + 1).padStart(2, "0");
+  const pastYear = pastDate.getFullYear();
+  const pastStr = `${pastYear}-${pastMonth}-${pastDay}`;
+  // Format today's date for input
+  const todayStr = `${year}-${month}-${day}`;
+  // Set limits and default
+  docDateInput.max = todayStr;
+  docDateInput.min = pastStr;
+  
+}
 window.onload = () => {
   buildBuyerDropdown?.(); // Optional, if defined elsewhere
   populateBuyerDetails?.(); // Optional, if defined elsewhere
   addItem?.(); // Optional, if defined elsewhere
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, "0");
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const year = today.getFullYear(); // Full year (e.g., 2025)
-  const formattedDate = `${day}/${month}/${year}`;
-  document.getElementById("docDate").value = formattedDate;
-  
+  setDate();
   document.addEventListener("keydown", function(e) {
     if (e.ctrlKey) {
       switch (e.key.toLowerCase()) {
@@ -1450,15 +1477,6 @@ const themes = {
     "--danger-color": "#ff3131"
   }
 };
-// Apply theme
-function setTheme(themeName) {
-  const theme = themes[themeName];
-  if (!theme) return;
-  Object.keys(theme).forEach(key => {
-    document.documentElement.style.setProperty(key, theme[key]);
-  });
-  localStorage.setItem("appTheme", themeName);
-}
 
 // Load saved theme
 window.addEventListener("DOMContentLoaded", () => {
@@ -1492,11 +1510,6 @@ document.querySelectorAll(".theme-options button").forEach(btn => {
   });
 });
 
-// Load saved theme on startup
-window.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.getItem("appTheme") || "light";
-  setTheme(saved);
-});
 
 document.querySelector('#invoiceForm').addEventListener('submit', (e) => {
   e.preventDefault();
