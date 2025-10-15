@@ -473,15 +473,15 @@ const predefinedItems = {
   },
   "PARTS SALES (local)": {
     desc: "PARTS SALES",
-    hsn: "84099191",
-    gst: 28,
+    hsn: "87141090",
+    gst: 18,
     isIGST: false,
     IsServc: "N"
   },
   "PARTS SALES (outstate)": {
     desc: "PARTS SALES",
-    hsn: "84099191",
-    gst: 28,
+    hsn: "87141090",
+    gst: 18,
     isIGST: true,
     IsServc: "N"
   },
