@@ -288,12 +288,10 @@ h2.header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #36363682;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+  background: #363636AB;
+  font-size: 1.8rem;
   font-weight: bold;
+  padding: 5rem 0;
   text-align: center;
   color: white;
   z-index: 5;
