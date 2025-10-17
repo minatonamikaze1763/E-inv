@@ -321,6 +321,19 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
+    "36AAACI7573H1ZD": {
+    Gstin: "36AAACI7573H1ZD",
+    LglNm: "IFFCO-TOKIO GENERAL INSURANCE COMPANY LTD",
+    Addr1: "1st Floor,Municipal No. 6-3-1107 and 6-3-1108, Raj Bhavan Road,SOMAJIGUDA",
+    Addr2: "Hyderabad",
+    Loc: "Hyderabad",
+    Pin: 500082,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null,
+  },
+
   "36AAACK5934A1ZW": {
     Gstin: "36AAACK5934A1ZW",
     LglNm: "KOTAK MAHINDRA PRIME LIMITED",
