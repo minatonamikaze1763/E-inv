@@ -321,7 +321,7 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
-    "36AAACI7573H1ZD": {
+  "36AAACI7573H1ZD": {
     Gstin: "36AAACI7573H1ZD",
     LglNm: "IFFCO-TOKIO GENERAL INSURANCE COMPANY LTD",
     Addr1: "1st Floor,Municipal No. 6-3-1107 and 6-3-1108, Raj Bhavan Road,SOMAJIGUDA",
@@ -333,7 +333,7 @@ const actualBuyerMap = {
     Ph: null,
     Em: null,
   },
-
+  
   "36AAACK5934A1ZW": {
     Gstin: "36AAACK5934A1ZW",
     LglNm: "KOTAK MAHINDRA PRIME LIMITED",
@@ -594,7 +594,10 @@ const isServer = {
 };
 let createdInvoices = [];
 
-function addItem() {
+function addItem(isOnLoad = false) {
+  if (document.getElementById("buyerGstin").value === 'Select' && !isOnLoad) {
+    return alert('Please Select the buyer to add Items!');
+  }
   itemCount++;
   const container = document.getElementById("itemsContainer");
   const itemDiv = document.createElement("div");
@@ -631,6 +634,11 @@ function addItem() {
     Total Item Value: <input type="number" step="0.01" class="totItemVal" readonly>
   `;
   container.appendChild(itemDiv);
+  const sellerStCode = document.getElementById("sellerStcd").value;
+  const buyerStCode = document.getElementById("buyerStcd").value || 36;
+  
+  updateItemListsByState(sellerStCode, buyerStCode);
+  
 }
 
 function onItemSelect(selectEl) {
@@ -720,7 +728,13 @@ function updateGST(el) {
 
 function populateBuyerDetails() {
   const selectedKey = document.getElementById("buyerSelector").value;
+  
   const buyer = buyerMap[selectedKey];
+  if (buyer.Gstin !== 'Select') {
+    document.getElementsByClassName("mask")[0].classList.add("hidden");
+  } else {
+    document.getElementsByClassName("mask")[0].classList.remove("hidden");
+  }
   document.getElementById("buyerGstin").value = buyer.Gstin;
   document.getElementById("buyerName").value = buyer.LglNm;
   document.getElementById("buyerAddr1").value = buyer.Addr1;
@@ -1020,7 +1034,7 @@ function setDate() {
 window.onload = () => {
   buildBuyerDropdown?.(); // Optional, if defined elsewhere
   populateBuyerDetails?.(); // Optional, if defined elsewhere
-  addItem?.(); // Optional, if defined elsewhere
+   addItem?.(true); // Optional, if defined elsewhere
   setDate();
   document.addEventListener("keydown", function(e) {
     if (e.ctrlKey) {

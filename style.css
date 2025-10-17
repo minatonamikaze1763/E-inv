@@ -278,7 +278,31 @@ h2.header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
+  border-radius: 6px;
+
 }
+#itemsContainer .mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #36363682;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  z-index: 5;
+  border-radius: 6px;
+}
+#itemsContainer .mask.hidden{
+  display: none;
+}
+
 .buttons-container {
   position: sticky;
   top: 2rem;
