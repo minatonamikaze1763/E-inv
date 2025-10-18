@@ -411,16 +411,22 @@ h2.header {
   right: 0;
   bottom: 0;
   background: #363636BA;
-  font-size: 1.8rem;
-  font-weight: bold;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
   z-index: 5;
+  color: var(--secondary-color);
   border-radius: 6px;
   cursor: not-allowed;
+}
+#itemsContainer .mask h3{
+  color: var(--secondary-color);
+
+}
+#itemsContainer .mask .icon{
+  font-size: 6rem;
 }
 
 #itemsContainer .mask.hidden {
