@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation</title>
+  <!-- Styles & scripts -->
+  <link rel="stylesheet" href="../style.css" />
+ <script defer src="../settings.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">E-Invoice Generator</div>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <div class="nav-links" id="navLinks">
+      <a class="" href="../index.html">Home</a>
+      <a class="active"  href="Routes/docs.html">Docs</a>
+      <a class="" href="settings.html">Settings</a>
+    </div>
+  </nav>
+    <div class="shortcut-tips">
+    <h2>💡 Shortcut Keys</h2>
+    <ul class="shortcut-list">
+      <li>
+        <span>Add Item</span>
+        <span class="keys">Ctrl + E</span>
+      </li>
+      <li>
+        <span>Generate JSON</span>
+        <span class="keys">Ctrl + S</span>
+      </li>
+      <li>
+        <span>Logout</span>
+        <span class="keys">Ctrl + X</span>
+      </li>
+    </ul>
+  </div>
+  <section id="einvoice-features" aria-labelledby="einvoice-title">
+    <h2 id="einvoice-title">Important Notes</h2>
+    <ul>
+      <li>
+        <strong>Buyer selection required for item entry:</strong> You must select a <strong>buyer</strong> before adding any <strong>item details</strong>. This ensures that the item list loads correctly based on the selected buyer’s type (local or outstate) and prevents adding items without buyer information.
+      </li>
+      <li><strong>Item visibility based on buyer:</strong> When you select a buyer, the <strong>item list</strong> will automatically display the appropriate items based on whether the transaction is local or outstate.</li>
+      <li><strong>No duplicate invoice numbers in a session:</strong> you cannot create invoices that share the same <strong>invoice number</strong> within a single active session.</li>
+      
+      <li><strong>Buyer–Seller uniqueness enforced:</strong> creating an invoice for the same buyer <em>and</em> the same seller (duplicate buyer-seller pair) is not allowed.</li>
+      
+      <li><strong>12-hour session timeout:</strong> your session lasts <em>12 hours</em>. You will be automatically logged out when the 12-hour session expires.</li>
+      
+      <li><strong>Invoice date format:</strong> invoice dates can only be selected between <strong>Current date to last 30 days. </strong></li>
+      
+      <li><strong>Default item fields:</strong> every item will have default values for <strong>percentage</strong> (GST %), <strong>description</strong>, <strong>HSN</strong>, and a default locality flag (either <em>local</em> or <em>out-of-state</em>).</li>
+      
+      <li><strong>Keyboard shortcuts:</strong> you can use shortcut keys to speed up invoice generation — shortcuts are available for common actions (add item, save draft, open buyer selector, etc.).</li>
+      
+      <li><strong>Bulk invoice via CSV:</strong> create bulk invoices using our CSV format — <em>download the CSV template</em>, fill it, and upload to generate multiple invoices at once.</li>
+      
+      <li><strong>Merge previously generated invoices:</strong> you can merge up to <strong>15</strong> previously generated invoices into a single bulk-invoice JSON and upload that file once in E-INVOICE PORTAL.</li>
+      
+      <li><strong>Required fields to create an invoice:</strong> you must fill at minimum the <strong>invoice number</strong>, <strong>date</strong>, <strong>items</strong>, and <strong>buyer details</strong>. Invoices missing any of these will not be created.</li>
+      
+      <li><strong>REMAINDER:</strong> PETROL VEHICLES ITEM GST PERCENTAGE WAS CHANGED FROM <strong>28%</strong> TO <strong>18%</strong> AS THE GOVERNMENT CHANGED THE TAX STRUCTURE ON <strong>22 SEP 2025</strong>.</li>
+      <li><strong>NOTE: </strong> For adding new Items,new Buyer details,changing your login password,<strong>Login access for new dealer and for login keys</strong>, please conatct at <a href="mailto:adepunandhu9@gmail.com">adepunandhu9@gmail.com</a> </li>
+      
+    </ul>
+  </section>
+    <footer class="footer">
+    
+    <h3>Made with love by Nandhu!</h3>
+  </footer>
+
+</body>
+
+</html>
