@@ -23,8 +23,8 @@
 
 /* Navbar Container */
 nav {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +37,7 @@ nav {
 
 /* Logo/Title */
 .logo {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -50,15 +50,15 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   padding: 8px 12px;
   border-radius: 5px;
   font-weight: 500;
   transition: color 0.3s;
 }
 .nav-links a.active {
-  color: var(--text-color);
-  background: var(--secondary-color);
+  color: var(--secondary-color);
+  background: var(--accent-color);
 }
 .nav-links a:hover {
   color: var(--border-color);
@@ -118,7 +118,7 @@ nav {
 /* Wrapper */
 .theme-selector {
   position: fixed;
-  top: 20px;
+  top: 7rem;
   right: 20px;
   z-index: 9999;
   font-family: inherit;
