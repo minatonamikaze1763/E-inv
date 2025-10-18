@@ -45,6 +45,8 @@ nav {
 /* Nav Links */
 .nav-links {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
 }
 
@@ -86,8 +88,9 @@ nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: var(--primary-color);
     position: absolute;
+    background-color: var(--secondary-color);
+
     top: 60px;
     left: 0;
     padding: 1rem 0;
@@ -170,16 +173,9 @@ h4 {
   scrollbar-color: var(--accent-color) var(--secondary-color);
 }
 
-.logout-btn {
-  margin-bottom: 2rem;
+#logoutBtn {
   background: var(--danger-color);
-  /* red */
   color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
 }
 
 #login-status {
