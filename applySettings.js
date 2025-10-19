@@ -10,3 +10,10 @@ function getSetting(key, fallback) {
   return settings[key]?.value ?? fallback;
 }
 
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
