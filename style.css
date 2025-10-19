@@ -797,6 +797,12 @@ h2.header {
 
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
+.login-form {
+  width: 80%;
+}
+.login-form input{
+  width: auto;}
+
 
   /* Form layout: stack columns */
   form {
