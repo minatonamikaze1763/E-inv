@@ -884,3 +884,87 @@ h2.header {
     gap: 0.5rem;
   }
 }
+
+
+
+/* Container wrapping all settings */
+.settings-container {
+  background: var(--secondary-color);
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 20px;
+}
+
+/* Each setting card */
+.setting-card {
+  background: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--secondary-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.setting-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.setting-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+/* Description text */
+.setting-card p {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Input controls (select, checkbox, etc.) */
+.setting-card select,
+.setting-card input[type="checkbox"],
+.setting-card input[type="text"] {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  outline: none;
+  background: var(--secondary-color);
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.setting-card select:hover,
+.setting-card input:hover {
+  border-color: var(--accent-color);
+}
+
+.setting-card select:focus,
+.setting-card input:focus {
+  border-color: var(--hover-color);
+  background: #fff;
+}
+
+/* Checkbox alignment */
+.setting-card .checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting-card .checkbox-row label {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
