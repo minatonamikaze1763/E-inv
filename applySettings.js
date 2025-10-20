@@ -5,6 +5,8 @@
     document.documentElement.style.setProperty(k, v);
   });
 })();
+const SETTINGS_KEY = "eInvSettings";
+const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
 
 function getSetting(key, fallback) {
   return settings[key]?.value ?? fallback;

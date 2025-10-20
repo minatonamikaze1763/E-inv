@@ -799,6 +799,8 @@ function buildBuyerDropdown() {
     option2.textContent = `${buyer.LglNm} - ${buyer.Gstin}`;
     bulkBuyer.appendChild(option2);
   }
+  
+  
 }
 
 function checkInvDateRange(dateStr) {
@@ -1031,10 +1033,37 @@ function setDate() {
   docDateInput.min = pastStr;
   
 }
+
+function applyDefaultSettings() {
+  const defaultBuyer = getSetting("defaultBuyer", null);
+  
+  function getBuyerIndexByGSTIN(gstin) {
+    let count = 0;
+    for (const key in buyerMap) {
+      if (buyerMap[key].Gstin === gstin) { // key itself is the GSTIN
+        return String(count); // because your option values are string indexes
+      }
+      count++;
+    }
+    return null;
+  }
+  
+  if (defaultBuyer) {
+    const indexValue = getBuyerIndexByGSTIN(defaultBuyer);
+    if (indexValue !== null) {
+      document.getElementById("buyerSelector").value = indexValue;
+      populateBuyerDetails()
+    } else {
+      console.warn("GSTIN not found in buyerMap:", defaultBuyer);
+    }
+  }
+}
+
 window.onload = () => {
   buildBuyerDropdown?.(); // Optional, if defined elsewhere
-  populateBuyerDetails?.(); // Optional, if defined elsewhere
-   addItem?.(true); // Optional, if defined elsewhere
+  populateBuyerDetails?.();
+  applyDefaultSettings();
+  addItem?.(true); // Optional, if defined elsewhere
   setDate();
   document.addEventListener("keydown", function(e) {
     if (e.ctrlKey) {
@@ -1218,4 +1247,3 @@ document.querySelector('#invoiceForm').addEventListener('submit', (e) => {
   e.preventDefault();
   generateJSON();
 })
-
