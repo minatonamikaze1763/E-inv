@@ -441,18 +441,18 @@ const allowed = [
   "36AFHFS4680J1ZH",
   "36AAFCL0077Q1Z1",
 ]
-const predefinedItems = {
+const unsortedItems = {
   'WARRANTY (outstate)': {
     desc: "WARRANTY",
     hsn: "87141090",
-    gst: 28,
+    gst: 18,
     isIGST: true,
     IsServc: "N"
   },
   'WARRANTY (local)': {
     desc: "WARRANTY",
     hsn: "87141090",
-    gst: 28,
+    gst: 18,
     isIGST: false,
     IsServc: "N"
   },
@@ -584,6 +584,16 @@ const predefinedItems = {
   }
   
 };
+function sortObjectByKeys(obj) {
+  return Object.keys(obj)
+    .sort((a, b) => a.localeCompare(b)) // sort keys alphabetically
+    .reduce((sorted, key) => {
+      sorted[key] = obj[key];
+      return sorted;
+    }, {});
+}
+
+const predefinedItems = sortObjectByKeys(unsortedItems);
 const isServer = {
   tillDate: "2025-09-04",
   get down() {
