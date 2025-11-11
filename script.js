@@ -584,6 +584,7 @@ const unsortedItems = {
   }
   
 };
+
 function sortObjectByKeys(obj) {
   return Object.keys(obj)
     .sort((a, b) => a.localeCompare(b)) // sort keys alphabetically
@@ -1104,7 +1105,7 @@ window.onload = () => {
     location.reload(); // reload page
   }
 };
-
+/*
 function generateBulkInvoices() {
   const fileInput = document.getElementById("csvFile").files[0];
   if (!fileInput) {
@@ -1229,7 +1230,169 @@ function generateBulkInvoices() {
     }
   });
 }
+*/
 
+function generateBulkInvoices() {
+  const fileInput = document.getElementById("csvFile").files[0];
+  if (!fileInput) {
+    alert("Please upload a CSV file first!");
+    return;
+  }
+
+  const buyerId = document.getElementById("bulkBuyerSelect").value;
+  const buyerDetails = buyerMap[buyerId];
+  if (!buyerDetails || buyerDetails.Gstin === "Select") {
+    alert("Please select a buyer from Bulk Buyer dropdown!");
+    return;
+  }
+
+  const sellerGstin = document.getElementById("sellerGstin").value;
+  const sellerName = document.getElementById("sellerName").value;
+  const sellerAddr1 = document.getElementById("sellerAddr1").value;
+  const sellerLoc = document.getElementById("sellerLoc").value;
+  const sellerPin = parseInt(document.getElementById("sellerPin").value);
+  const sellerStcd = document.getElementById("sellerStcd").value;
+  const sellerPh = document.getElementById("sellerPh").value;
+
+  Papa.parse(fileInput, {
+    header: true,
+    skipEmptyLines: true,
+    complete: function (results) {
+      const data = results.data;
+      const zip = new JSZip();
+
+      // Group rows by invNo
+      const invoiceGroups = {};
+      data.forEach(row => {
+        const invNo = row["invNo"];
+        if (!invoiceGroups[invNo]) invoiceGroups[invNo] = [];
+        invoiceGroups[invNo].push(row);
+      });
+
+      Object.keys(invoiceGroups).forEach(invNo => {
+        const rows = invoiceGroups[invNo];
+
+        let assVal = 0, cgstVal = 0, sgstVal = 0, igstVal = 0, totInvVal = 0;
+        const itemList = [];
+
+        rows.forEach((row, i) => {
+          const taxable = parseFloat(row["taxable"]) || 0;
+          const gstRate = parseFloat(row["percentage"]) || 0;
+          const qty = parseFloat(row["qty"]) || 1;
+          const desc = row["description"];
+          const hsn = row["hsn"] || "0000";
+          const isService = row["isService"] || "N";
+
+          let itemCgst = 0, itemSgst = 0, itemIgst = 0;
+          let itemTotal = taxable * qty;
+
+          if (sellerStcd === buyerDetails.Stcd) {
+            itemCgst = +(taxable * (gstRate / 200)).toFixed(2);
+            itemSgst = +(taxable * (gstRate / 200)).toFixed(2);
+            itemTotal += itemCgst + itemSgst;
+          } else {
+            itemIgst = +(taxable * (gstRate / 100)).toFixed(2);
+            itemTotal += itemIgst;
+          }
+
+          assVal += taxable;
+          cgstVal += itemCgst;
+          sgstVal += itemSgst;
+          igstVal += itemIgst;
+          totInvVal += itemTotal;
+
+          itemList.push({
+            SlNo: String(i + 1),
+            PrdDesc: desc,
+            IsServc: isService,
+            HsnCd: hsn,
+            Qty: qty,
+            FreeQty: 0,
+            Unit: "NOS",
+            UnitPrice: taxable,
+            TotAmt: taxable,
+            Discount: 0,
+            PreTaxVal: 0,
+            AssAmt: taxable,
+            GstRt: gstRate,
+            IgstAmt: itemIgst,
+            CgstAmt: itemCgst,
+            SgstAmt: itemSgst,
+            CesRt: 0,
+            CesAmt: 0,
+            CesNonAdvlAmt: 0,
+            StateCesRt: 0,
+            StateCesAmt: 0,
+            StateCesNonAdvlAmt: 0,
+            OthChrg: 0,
+            TotItemVal: itemTotal
+          });
+        });
+
+        const invoice = {
+          Version: "1.1",
+          TranDtls: {
+            TaxSch: "GST",
+            SupTyp: "B2B",
+            IgstOnIntra: "N",
+            RegRev: "N",
+            EcmGstin: null
+          },
+          DocDtls: {
+            Typ: "INV",
+            No: invNo,
+            Dt: formatDate(rows[0]["invDate"])
+          },
+          SellerDtls: {
+            Gstin: sellerGstin,
+            LglNm: sellerName,
+            Addr1: sellerAddr1,
+            Addr2: null,
+            Loc: sellerLoc,
+            Pin: sellerPin,
+            Stcd: sellerStcd,
+            Ph: sellerPh,
+            Em: null
+          },
+          BuyerDtls: {
+            Gstin: buyerDetails.Gstin,
+            LglNm: buyerDetails.LglNm,
+            Addr1: buyerDetails.Addr1,
+            Addr2: buyerDetails.Addr2 || null,
+            Loc: buyerDetails.Loc,
+            Pin: parseInt(buyerDetails.Pin),
+            Pos: buyerDetails.Pos,
+            Stcd: buyerDetails.Stcd,
+            Ph: null,
+            Em: null
+          },
+          ValDtls: {
+            AssVal: parseFloat(assVal.toFixed(2)),
+            IgstVal: parseFloat(igstVal.toFixed(2)),
+            CgstVal: parseFloat(cgstVal.toFixed(2)),
+            SgstVal: parseFloat(sgstVal.toFixed(2)),
+            CesVal: 0,
+            StCesVal: 0,
+            Discount: 0,
+            OthChrg: 0,
+            RndOffAmt: 0,
+            TotInvVal: parseFloat(totInvVal.toFixed(2))
+          },
+          RefDtls: {
+            InvRm: "NICGEPP2.0"
+          },
+          ItemList: itemList
+        };
+
+        zip.file(`${invNo}.json`, JSON.stringify([invoice], null, 2));
+      });
+
+      zip.generateAsync({ type: "blob" }).then(content => {
+        saveAs(content, "bulk_invoices.zip");
+      });
+    }
+  });
+}
 const csvFileInput = document.getElementById("csvFile");
 const csvDrop = document.getElementById("csvDrop");
 const fileInfo = document.getElementById("fileInfo");
