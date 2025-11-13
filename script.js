@@ -451,7 +451,7 @@ const actualBuyerMap = {
   },
   "36DLGPD1299N1ZN": {
     Gstin: "36DLGPD1299N1ZN",
-    LglNm: "DAMMAI RATHAN KUMAR",
+    LglNm: "HM MARKETING",
     Addr1: "0, 5-6-550, SR Mallaiah Complex, Hyderabad Road, Pragathi Nagar",
     Addr2: "Nizamabad, Telangana",
     Loc: "Nizamabad",
@@ -463,7 +463,7 @@ const actualBuyerMap = {
   },
   "36DOOPB6121J1ZW": {
     Gstin: "36DOOPB6121J1ZW",
-    LglNm: "NAGARAJU BODDULA",
+    LglNm: "M/S MANA MOBILE STORE",
     Addr1: "H NO 2-3-97/1, MARKET ROAD, METPALLY",
     Addr2: "Jagtial, Telangana",
     Loc: "Jagtial",
@@ -475,7 +475,7 @@ const actualBuyerMap = {
   },
   "36AZUPP5624Q1Z9": {
     Gstin: "36AZUPP5624Q1Z9",
-    LglNm: "SRINIVAS PINNAMSHETTI",
+    LglNm: "MANASA CELL POINT",
     Addr1: "5-1-106, MAIN ROAD KORUTLA, KORUTLA TOWN AND MANDAL",
     Addr2: "Jagtial, Telangana",
     Loc: "Jagtial",
@@ -487,7 +487,7 @@ const actualBuyerMap = {
   },
   "36BRSPA0493H1ZN": {
     Gstin: "36BRSPA0493H1ZN",
-    LglNm: "SALVERU ANIL KUMAR",
+    LglNm: "MITHRA COMMUNICATIONS",
     Addr1: "3-10-104 A, BAHARPET, BHONGIR",
     Addr2: "Yadadri Bhuvanagiri, Telangana",
     Loc: "Yadadri Bhuvanagiri",
@@ -499,7 +499,7 @@ const actualBuyerMap = {
   },
   "36CFIPB9255B1ZM": {
     Gstin: "36CFIPB9255B1ZM",
-    LglNm: "Balija Umamaheshwar rao",
+    LglNm: "NAKAHATRA ELECTRONICS",
     Addr1: "4-2-320, New Bus stand main Road, Bodhan",
     Addr2: "Nizamabad, Telangana",
     Loc: "Nizamabad",
@@ -511,7 +511,7 @@ const actualBuyerMap = {
   },
   "36JLTPS8594E1ZW": {
     Gstin: "36JLTPS8594E1ZW",
-    LglNm: "AJAY SANKU",
+    LglNm: "M/S PRATHIBHA MOBILES SALES AND SERVICES",
     Addr1: "1-7-118, OLDBUSSTAND, METPALLY",
     Addr2: "Jagtial, Telangana",
     Loc: "Jagtial",
@@ -523,7 +523,7 @@ const actualBuyerMap = {
   },
   "36CLDPR3100E1ZK": {
     Gstin: "36CLDPR3100E1ZK",
-    LglNm: "VINOD KUMAR RAMPALLY",
+    LglNm: "RAMPALLY MEE MOBILE STORE",
     Addr1: "OPP BAJAJ SHOW ROOM, 1-3-160, OLD BUS STAND, METPALLY, METPALLY",
     Addr2: "Jagtial, Telangana",
     Loc: "Jagtial",
@@ -535,7 +535,7 @@ const actualBuyerMap = {
   },
   "36APGPB4118P1ZS": {
     Gstin: "36APGPB4118P1ZS",
-    LglNm: "RAJENDER BONDUGULA",
+    LglNm: "M/S SRI SAI BALAJI CELL POINT",
     Addr1: "1-9-52, MAIN ROAD, METPALLY",
     Addr2: "Jagtial, Telangana",
     Loc: "Jagtial",
@@ -547,7 +547,7 @@ const actualBuyerMap = {
   },
   "36AEFPL6415D1ZR": {
     Gstin: "36AEFPL6415D1ZR",
-    LglNm: "AJENDER REDDY LINGALA",
+    LglNm: "VENKATA SAI MOBILES",
     Addr1: "1-1-11/C, Main Road, Banswada",
     Addr2: "Kamareddy, Telangana",
     Loc: "Kamareddy",
