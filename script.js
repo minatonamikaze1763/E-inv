@@ -424,6 +424,126 @@ const actualBuyerMap = {
     Stcd: "33",
     Ph: null,
     Em: null
+  },
+  "36AAGFE3946D1ZK": {
+    Gstin: "36AAGFE3946D1ZK",
+    LglNm: "ELECTRONIC WORLD",
+    Addr1: "Ground floor, 1-5-68/2, electronic world, ekalavya nagar, metpally",
+    Addr2: "Nizamabad, Telangana",
+    Loc: "Nizamabad",
+    Pin: 505325,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36DLGPD1299N1ZN": {
+    Gstin: "36DLGPD1299N1ZN",
+    LglNm: "DAMMAI RATHAN KUMAR",
+    Addr1: "0, 5-6-550, SR Mallaiah Complex, Hyderabad Road, Pragathi Nagar",
+    Addr2: "Nizamabad, Telangana",
+    Loc: "Nizamabad",
+    Pin: 503003,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36DOOPB6121J1ZW": {
+    Gstin: "36DOOPB6121J1ZW",
+    LglNm: "NAGARAJU BODDULA",
+    Addr1: "H NO 2-3-97/1, MARKET ROAD, METPALLY",
+    Addr2: "Jagtial, Telangana",
+    Loc: "Jagtial",
+    Pin: 505325,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36AZUPP5624Q1Z9": {
+    Gstin: "36AZUPP5624Q1Z9",
+    LglNm: "SRINIVAS PINNAMSHETTI",
+    Addr1: "5-1-106, MAIN ROAD KORUTLA, KORUTLA TOWN AND MANDAL",
+    Addr2: "Jagtial, Telangana",
+    Loc: "Jagtial",
+    Pin: 505326,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36BRSPA0493H1ZN": {
+    Gstin: "36BRSPA0493H1ZN",
+    LglNm: "SALVERU ANIL KUMAR",
+    Addr1: "3-10-104 A, BAHARPET, BHONGIR",
+    Addr2: "Yadadri Bhuvanagiri, Telangana",
+    Loc: "Yadadri Bhuvanagiri",
+    Pin: 508116,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36CFIPB9255B1ZM": {
+    Gstin: "36CFIPB9255B1ZM",
+    LglNm: "Balija Umamaheshwar rao",
+    Addr1: "4-2-320, New Bus stand main Road, Bodhan",
+    Addr2: "Nizamabad, Telangana",
+    Loc: "Nizamabad",
+    Pin: 503180,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36JLTPS8594E1ZW": {
+    Gstin: "36JLTPS8594E1ZW",
+    LglNm: "AJAY SANKU",
+    Addr1: "1-7-118, OLDBUSSTAND, METPALLY",
+    Addr2: "Jagtial, Telangana",
+    Loc: "Jagtial",
+    Pin: 505325,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36CLDPR3100E1ZK": {
+    Gstin: "36CLDPR3100E1ZK",
+    LglNm: "VINOD KUMAR RAMPALLY",
+    Addr1: "OPP BAJAJ SHOW ROOM, 1-3-160, OLD BUS STAND, METPALLY, METPALLY",
+    Addr2: "Jagtial, Telangana",
+    Loc: "Jagtial",
+    Pin: 505325,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36APGPB4118P1ZS": {
+    Gstin: "36APGPB4118P1ZS",
+    LglNm: "RAJENDER BONDUGULA",
+    Addr1: "1-9-52, MAIN ROAD, METPALLY",
+    Addr2: "Jagtial, Telangana",
+    Loc: "Jagtial",
+    Pin: 505325,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
+  },
+  "36AEFPL6415D1ZR": {
+    Gstin: "36AEFPL6415D1ZR",
+    LglNm: "AJENDER REDDY LINGALA",
+    Addr1: "1-1-11/C, Main Road, Banswada",
+    Addr2: "Kamareddy, Telangana",
+    Loc: "Kamareddy",
+    Pin: 503187,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
   }
 };
 
@@ -440,6 +560,8 @@ const buyerMap = sortBuyerMapByName(actualBuyerMap);
 const allowed = [
   "36AFHFS4680J1ZH",
   "36AAFCL0077Q1Z1",
+  '36AAWFD9162A1Z7',
+  '36EEZPS3505H1ZV'
 ]
 const unsortedItems = {
   'WARRANTY (outstate)': {
@@ -1238,14 +1360,14 @@ function generateBulkInvoices() {
     alert("Please upload a CSV file first!");
     return;
   }
-
+  
   const buyerId = document.getElementById("bulkBuyerSelect").value;
   const buyerDetails = buyerMap[buyerId];
   if (!buyerDetails || buyerDetails.Gstin === "Select") {
     alert("Please select a buyer from Bulk Buyer dropdown!");
     return;
   }
-
+  
   const sellerGstin = document.getElementById("sellerGstin").value;
   const sellerName = document.getElementById("sellerName").value;
   const sellerAddr1 = document.getElementById("sellerAddr1").value;
@@ -1253,14 +1375,14 @@ function generateBulkInvoices() {
   const sellerPin = parseInt(document.getElementById("sellerPin").value);
   const sellerStcd = document.getElementById("sellerStcd").value;
   const sellerPh = document.getElementById("sellerPh").value;
-
+  
   Papa.parse(fileInput, {
     header: true,
     skipEmptyLines: true,
-    complete: function (results) {
+    complete: function(results) {
       const data = results.data;
       const zip = new JSZip();
-
+      
       // Group rows by invNo
       const invoiceGroups = {};
       data.forEach(row => {
@@ -1268,13 +1390,17 @@ function generateBulkInvoices() {
         if (!invoiceGroups[invNo]) invoiceGroups[invNo] = [];
         invoiceGroups[invNo].push(row);
       });
-
+      
       Object.keys(invoiceGroups).forEach(invNo => {
         const rows = invoiceGroups[invNo];
-
-        let assVal = 0, cgstVal = 0, sgstVal = 0, igstVal = 0, totInvVal = 0;
+        
+        let assVal = 0,
+          cgstVal = 0,
+          sgstVal = 0,
+          igstVal = 0,
+          totInvVal = 0;
         const itemList = [];
-
+        
         rows.forEach((row, i) => {
           const taxable = parseFloat(row["taxable"]) || 0;
           const gstRate = parseFloat(row["percentage"]) || 0;
@@ -1282,10 +1408,12 @@ function generateBulkInvoices() {
           const desc = row["description"];
           const hsn = row["hsn"] || "0000";
           const isService = row["isService"] || "N";
-
-          let itemCgst = 0, itemSgst = 0, itemIgst = 0;
+          
+          let itemCgst = 0,
+            itemSgst = 0,
+            itemIgst = 0;
           let itemTotal = taxable * qty;
-
+          
           if (sellerStcd === buyerDetails.Stcd) {
             itemCgst = +(taxable * (gstRate / 200)).toFixed(2);
             itemSgst = +(taxable * (gstRate / 200)).toFixed(2);
@@ -1294,13 +1422,13 @@ function generateBulkInvoices() {
             itemIgst = +(taxable * (gstRate / 100)).toFixed(2);
             itemTotal += itemIgst;
           }
-
+          
           assVal += taxable;
           cgstVal += itemCgst;
           sgstVal += itemSgst;
           igstVal += itemIgst;
           totInvVal += itemTotal;
-
+          
           itemList.push({
             SlNo: String(i + 1),
             PrdDesc: desc,
@@ -1328,7 +1456,7 @@ function generateBulkInvoices() {
             TotItemVal: itemTotal
           });
         });
-
+        
         const invoice = {
           Version: "1.1",
           TranDtls: {
@@ -1383,10 +1511,10 @@ function generateBulkInvoices() {
           },
           ItemList: itemList
         };
-
+        
         zip.file(`${invNo}.json`, JSON.stringify([invoice], null, 2));
       });
-
+      
       zip.generateAsync({ type: "blob" }).then(content => {
         saveAs(content, "bulk_invoices.zip");
       });
