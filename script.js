@@ -57,6 +57,18 @@ const actualBuyerMap = {
     Ph: null,
     Em: null
   },
+  "36EEZPS3505H1ZV": {
+    "Gstin": "36EEZPS3505H1ZV",
+    "LglNm": "LAXMI DIGITALS",
+    "Addr1": "PLOT NO 286,MADHAVA NAGAR,NIZAMABAD",
+    "Addr2": "NIZAMABAD",
+    "Loc": "NIZAMABAD",
+    "Pin": 503001,
+    "Pos": "36",
+    "Stcd": "36",
+    "Ph": 9502363435,
+    "Em": null
+  },
   "33AAACS7032B1ZZ": {
     Gstin: "33AAACS7032B1ZZ",
     LglNm: "TVS MOTOR COMPANY LTD",
