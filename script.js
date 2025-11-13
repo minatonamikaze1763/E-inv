@@ -567,6 +567,17 @@ const actualBuyerMap = {
     Stcd: "36",
     Ph: null,
     Em: null
+  } , "36AAACS5123K1ZE": {
+    Gstin: "36AAACS5123K1ZE",
+    LglNm: "SAMSUNG INDIA ELECTRONICS PRIVATE LIMITED",
+    Addr1: "Gumidelli Commercial Complex   1-10-39 to 44, 3rd Floor, Old Airport Road",
+    Addr2: "Hyderabad, Telangana",
+    Loc: "Hyderabad",
+    Pin: 500016,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
   }
 };
 
