@@ -61,6 +61,7 @@ function loginWithKey() {
     const u = users[key];
     if (u.keys && u.keys.includes(loginKey)) {
       foundUser = { key, user: u };
+      saveLogin(u);
       break;
     }
   }
@@ -84,8 +85,8 @@ function loginWithKey() {
 }
 
 // --- Event Listeners ---
-document.addEventListener("DOMContentLoaded", () => {
-  loadUsers();
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadUsers();
   
   
   const loginContainer = document.querySelector(".login-container");
@@ -114,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const u = users[key];
       if (u.username === username && u.password === password) {
         foundUser = { key, user: u };
+        saveLogin(u);
         break;
       }
     }
