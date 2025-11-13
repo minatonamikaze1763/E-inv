@@ -53,23 +53,40 @@ function loginWithKey() {
   const loginContainer = document.querySelector(".login-container");
   const loginKey = document.getElementById("login-key").value.trim();
   const status = document.getElementById("login-key-status");
-  // Check each user
+  
+  let foundUser = null;
+  
+  // Find the user with the matching key
   for (const key in users) {
     const u = users[key];
-    if (u.keys.includes(loginKey)) {
-      setSellerDetails(u.details);
-      loginContainer.classList.add("hidden");
-      saveLogin(key);
-      return;
+    if (u.keys && u.keys.includes(loginKey)) {
+      foundUser = { key, user: u };
+      break;
     }
   }
-  status.innerHTML = "Invalid Key!";
+  
+  if (!foundUser) {
+    status.innerHTML = "Invalid Key!";
+    return;
+  }
+  
+  const { key, user } = foundUser;
+  
+  if (!user.isActive) {
+    status.innerHTML = "User is InActive, please contact the developer!";
+    return;
+  }
+  
+  // Proceed with login
+  setSellerDetails(user.details);
+  loginContainer.classList.add("hidden");
+  saveLogin(key);
 }
 
 // --- Event Listeners ---
 document.addEventListener("DOMContentLoaded", () => {
   loadUsers();
-
+  
   
   const loginContainer = document.querySelector(".login-container");
   const loginForm = document.querySelector(".login-form");
@@ -90,17 +107,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value.trim();
     const status = document.getElementById("login-status");
     
-    // Check each user
+    let foundUser = null;
+    
+    // Find matching user first
     for (const key in users) {
       const u = users[key];
       if (u.username === username && u.password === password) {
-        setSellerDetails(u.details);
-        loginContainer.classList.add("hidden");
-        saveLogin(key);
-        return;
+        foundUser = { key, user: u };
+        break;
       }
     }
-    status.innerHTML = "Invalid username or password!";
+    
+    if (!foundUser) {
+      status.innerHTML = "Invalid username or password!";
+      return;
+    }
+    
+    const { key, user } = foundUser;
+    
+    if (!user.isActive) {
+      status.innerHTML = "User is InActive, please contact the developer!";
+      return;
+    }
+    
+    // Proceed to login
+    setSellerDetails(user.details);
+    loginContainer.classList.add("hidden");
+    saveLogin(key);
   });
 });
 
