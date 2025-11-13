@@ -556,6 +556,17 @@ const actualBuyerMap = {
     Stcd: "36",
     Ph: null,
     Em: null
+  } , "36AAACS5547H1Z9": {
+    Gstin: "36AAACS5547H1Z9",
+    LglNm: "SAVEX TECHNOLOGIES PRIVATE LIMITED",
+    Addr1: "203 and 204- Savex Technologies Private Limited   5-4-94 to 97 Lala-1 Landmark, Second Floor, MG Road",
+    Addr2: "Secunderabad, Telangana",
+    Loc: "Secunderabad",
+    Pin: 500003,
+    Pos: "36",
+    Stcd: "36",
+    Ph: null,
+    Em: null
   }
 };
 

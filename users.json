@@ -60,7 +60,7 @@
     "username": "LAXMI DIGITALS",
     "password": "digitals@2025#",
     "company": "LAXMI DIGITALS",
-    "isActive": false,
+    "isActive": true,
     "details": {
       "Gstin": "36EEZPS3505H1ZV",
       "LglNm": "LAXMI DIGITALS",
