@@ -54,7 +54,24 @@ const users = {
     },
     keys: ["3", 'devi-3', 'devi-3']
   },
-  
+  laxmiDigitial: {
+    username: "LAXMI DIGITALS",
+    password: "digitals@2025#",
+    company: "LAXMI DIGITALS",
+    details: {
+      Gstin: "36EEZPS3505H1ZV",
+      LglNm: "LAXMI DIGITALS",
+      Addr1: "PLOT NO 286,MADHAVA NAGAR,NIZAMABAD",
+      Addr2: "NIZAMABAD",
+      Loc: "NIZAMABAD",
+      Pin: 503001,
+      Pos: "36",
+      Stcd: "36",
+      Ph: 9502363435,
+      Em: null,
+    },
+    keys: ["4", 'digital-4', 'digital-4']
+  },
 };
 
 // --- Helpers ---
