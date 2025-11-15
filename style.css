@@ -28,7 +28,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -37,9 +37,8 @@ nav {
 
 /* Logo/Title */
 .logo {
-  font-size: 1.6rem;
-  font-weight: 600;
   letter-spacing: 1px;
+  margin: 0;
 }
 
 /* Nav Links */

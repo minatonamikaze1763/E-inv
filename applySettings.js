@@ -19,3 +19,19 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks.classList.toggle('active');
 });
+
+function loadHomePage() {
+  // your home page file name
+  const home = "../index.html";
+  
+  // get current page name
+  const current = window.location.pathname.split("/").pop();
+  
+  // if already on home page, do nothing
+  if (current === home || current === "") {
+    return;
+  }
+  
+  // otherwise redirect to home page
+  window.location.href = home;
+}
