@@ -118,13 +118,37 @@
       border-radius: 8px;
       font-size: 0.9rem;
     }
+    
+    .note {
+      background: var(--secondary-color);
+      border-left: 5px solid var(--accent-color);
+      padding: 12px 16px;
+      margin: 2rem auto;
+      border-radius: 10px;
+      max-width: 600px;
+      font-size: 14px;
+      color: var(--text-color);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+    
+    .note p {
+      margin: 0;
+      line-height: 1.9;
+    }
   </style>
 </head>
 
 <body>
   <h1>Available Users</h1>
   <div class="user-container" id="userContainer"></div>
-  
+  <div class="note">
+    <p>
+      You cannot generate e-invoices for other dealers even if you have their login
+      credentials. For security and compliance reasons, each dealer must generate
+      their own invoices. That’s why this page is visible to everyone—it's only a
+      common interface, not access to another dealer’s data.
+    </p>
+  </div>
   <script>
     let users = {};
     
