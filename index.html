@@ -52,7 +52,7 @@
 
 <body>
   <nav>
-    <h1 class="logo" >E-Invoice Generator</h1>
+    <h1 class="logo">E-Invoice Generator</h1>
     
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -209,13 +209,26 @@
       <h3>Merge Invoice JSON Files</h3>
       
       <!-- Drag & Drop Area -->
-      <div id="dropZone" class="drop-zone">
+      <div id="dropZone" class=" dropzone">
         Drag & Drop JSON files here or click to select
         <input type="file" id="fileInput" accept=".json" multiple hidden>
       </div>
       
       <button id="mergeBtn" class="merge-btn" disabled>Merge & Download</button>
     </div>
+    
+    <div class="json-merger-container">
+      <h3>Merge Dms JSON and generate JSON Files</h3>
+      
+      <!-- Drag & Drop Area -->
+      <div id="dmsDropZone" class=" dropzone">
+        Drag & Drop JSON files here or click to select
+        <input type="file" id="fileInput" accept=".json" multiple hidden>
+      </div>
+      
+      <button id="dmsMergeBtn" class="merge-btn" disabled>Merge & Download</button>
+    </div>
+    
     
     <!-- JSZip Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -314,14 +327,7 @@
         background: var(--bg-color, #f9f9f9);
       }
       
-      .drop-zone {
-        padding: 5rem 2rem;
-        text-align: center;
-        border: 2px dashed var(--primary-color, #6a0dad);
-        border-radius: 10px;
-        cursor: pointer;
-        margin-bottom: 1rem;
-      }
+
       
       .drop-zone.drag-over {
         background: var(--secondary-color, #f0e6f9);

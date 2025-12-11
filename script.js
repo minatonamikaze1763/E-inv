@@ -556,7 +556,8 @@ const actualBuyerMap = {
     Stcd: "36",
     Ph: null,
     Em: null
-  } , "36AAACS5547H1Z9": {
+  },
+  "36AAACS5547H1Z9": {
     Gstin: "36AAACS5547H1Z9",
     LglNm: "SAVEX TECHNOLOGIES PRIVATE LIMITED",
     Addr1: "203 and 204-Savex Technologies Private Limited,5-4-94 to 97",
@@ -567,7 +568,8 @@ const actualBuyerMap = {
     Stcd: "36",
     Ph: null,
     Em: null
-  } , "36AAACS5123K1ZE": {
+  },
+  "36AAACS5123K1ZE": {
     Gstin: "36AAACS5123K1ZE",
     LglNm: "SAMSUNG INDIA ELECTRONICS PRIVATE LIMITED",
     Addr1: "Gumidelli Commercial Complex   1-10-39 to 44, 3rd Floor, Old Airport Road",
@@ -1576,6 +1578,280 @@ removeFileBtn.addEventListener("click", function() {
   csvDrop.style.display = "block"; // show dropzone again
 });
 
+function generateDMSJSON() {
+  const session = localStorage.getItem("loginSession");
+  if (!session) return window.location.reload();
+  const isGstin = document.getElementById("sellerGstin").value;
+  if (!allowed.includes(isGstin)) return window.location.reload();
+  const buyerGstin = document.getElementById("buyerGstin").value;
+  if (buyerGstin === isGstin) {
+    return alert("Cannot create invoice for same buyer and seller!")
+  }
+  if (isServer.down) return alert("E-invoice Json server is down, please try again later!");
+  if (document.getElementById("buyerGstin").value === "Select") {
+    alert("please select the buyer")
+    return;
+  }
+  if (isGstin === "") {
+    alert("please login first")
+    window.location.reload();
+    return;
+  }
+  let assVal = 0;
+  let cgstVal = 0;
+  let sgstVal = 0;
+  let igstVal = 0;
+  let totInvVal = 0;
+  let docNumber = document
+    .getElementById("docNo")
+    .value.replace(/\s+/g, "")
+    .trim();
+  let docDate = getDocDate();
+  if (createdInvoices.includes(docNumber)) {
+    return alert("Cannot create E-Invoice for same invoice Number: " + docNumber);
+  }
+  
+  createdInvoices.push(docNumber);
+  const invoice = {
+    Version: "1.1",
+    TranDtls: {
+      TaxSch: "GST",
+      SupTyp: "B2B",
+      IgstOnIntra: "N",
+      RegRev: "N",
+      EcmGstin: null
+    },
+    DocDtls: {
+      Typ: "INV",
+      No: docNumber,
+      Dt: docDate
+    },
+    SellerDtls: {
+      Gstin: document.getElementById("sellerGstin").value,
+      LglNm: document.getElementById("sellerName").value,
+      Addr1: document.getElementById("sellerAddr1").value,
+      Addr2: null,
+      Loc: document.getElementById("sellerLoc").value,
+      Pin: parseInt(document.getElementById("sellerPin").value),
+      Stcd: document.getElementById("sellerStcd").value,
+      Ph: document.getElementById("sellerPh").value,
+      Em: null
+    },
+    BuyerDtls: {
+      Gstin: document.getElementById("buyerGstin").value,
+      LglNm: document.getElementById("buyerName").value,
+      Addr1: document.getElementById("buyerAddr1").value,
+      Addr2: document.getElementById("buyerAddr2").value,
+      Loc: document.getElementById("buyerLoc").value,
+      Pin: parseInt(document.getElementById("buyerPin").value),
+      Pos: document.getElementById("buyerPos").value,
+      Stcd: document.getElementById("buyerStcd").value,
+      Ph: null,
+      Em: null
+    },
+    ValDtls: {},
+    RefDtls: {
+      InvRm: "NICGEPP2.0"
+    },
+    ItemList: []
+  };
+  const itemBlocks = document.querySelectorAll(".item-block");
+  itemBlocks.forEach((block, index) => {
+    const desc = block.querySelector(".itemDesc").value;
+    const hsn = block.querySelector(".hsnCode").value;
+    const qty = parseFloat(block.querySelector(".qty").value) || 0;
+    const unit = block.querySelector(".unit").value;
+    const unitPrice = parseFloat(block.querySelector(".unitPrice").value) || 0;
+    const gstRate = parseFloat(block.querySelector(".gstRate").value) || 0;
+    const igstAmt = parseFloat(block.querySelector(".igstAmt").value) || 0;
+    const cgstAmt = parseFloat(block.querySelector(".cgstAmt").value) || 0;
+    const sgstAmt = parseFloat(block.querySelector(".sgstAmt").value) || 0;
+    const totItemVal =
+      parseFloat(block.querySelector(".totItemVal").value) || 0;
+    const itemAssVal = unitPrice * qty;
+    const IsServc = block.querySelector(".IsServc").value;
+    assVal += itemAssVal;
+    igstVal += igstAmt;
+    cgstVal += cgstAmt;
+    sgstVal += sgstAmt;
+    totInvVal += totItemVal;
+    invoice.ItemList.push({
+      SlNo: String(index + 1),
+      PrdDesc: desc,
+      IsServc: IsServc,
+      HsnCd: hsn,
+      Qty: qty,
+      FreeQty: 0,
+      Unit: unit,
+      UnitPrice: unitPrice,
+      TotAmt: itemAssVal,
+      Discount: 0,
+      PreTaxVal: 0,
+      AssAmt: itemAssVal,
+      GstRt: gstRate,
+      IgstAmt: igstAmt,
+      CgstAmt: cgstAmt,
+      SgstAmt: sgstAmt,
+      CesRt: 0,
+      CesAmt: 0,
+      CesNonAdvlAmt: 0,
+      StateCesRt: 0,
+      StateCesAmt: 0,
+      StateCesNonAdvlAmt: 0,
+      OthChrg: 0,
+      TotItemVal: totItemVal
+    });
+  });
+  invoice.ValDtls = {
+    AssVal: parseFloat(assVal.toFixed(2)),
+    IgstVal: parseFloat(igstVal.toFixed(2)),
+    CgstVal: parseFloat(cgstVal.toFixed(2)),
+    SgstVal: parseFloat(sgstVal.toFixed(2)),
+    CesVal: 0,
+    StCesVal: 0,
+    Discount: 0,
+    OthChrg: 0,
+    RndOffAmt: 0,
+    TotInvVal: parseFloat(totInvVal.toFixed(2))
+  };
+  document.getElementById("output").textContent = JSON.stringify(
+    [invoice],
+    null,
+    2
+  );
+  downloadJSON();
+  
+  function downloadJSON() {
+    const jsonText = document.getElementById("output").textContent;
+    if (!jsonText.trim()) {
+      alert("Please generate JSON first.");
+      return;
+    }
+    const blob = new Blob([jsonText], {
+      type: "application/json"
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    const docNo =
+      document.getElementById("docNo").value.replace(/\s+/g, "").trim() ||
+      "invoice";
+    link.download = `${docNo}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+}
+
+// --- JS code ---
+
+// Utility to chunk array into subarrays of given size
+function dmsChunkArray(arr, chunkSize) {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunks.push(arr.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
+// Handle reading multiple files (FileList) and merging JSON arrays
+async function dmsReadAndMergeFiles(fileList) {
+  const merged = [];
+  
+  for (const file of fileList) {
+    if (!file.name.toLowerCase().endsWith('.json')) continue;
+    const text = await file.text(); // FileReader alternative
+    let parsed;
+    try {
+      parsed = JSON.parse(text);
+    } catch (err) {
+      console.warn("Skipped invalid JSON file:", file.name, err);
+      continue;
+    }
+    if (Array.isArray(parsed)) {
+      merged.push(...parsed);
+    } else {
+      console.warn("Skipped JSON file not containing array:", file.name);
+    }
+  }
+  
+  return merged;
+}
+
+// Generate and download ZIP containing merged JSON in chunks of max 20 objects
+async function dmsMergeAndDownload(fileList) {
+  const mergedArray = await dmsReadAndMergeFiles(fileList);
+  if (mergedArray.length === 0) {
+    alert("No valid JSON objects found to merge.");
+    return;
+  }
+  
+  const chunks = dmsChunkArray(mergedArray, 20);
+  const zip = new JSZip();
+  
+  chunks.forEach((chunk, idx) => {
+    const filename = `merged_dms_${idx + 1}.json`;
+    zip.file(filename, JSON.stringify(chunk, null, 2));
+  });
+  
+  const zipBlob = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(zipBlob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'merged_dms_invoices.zip';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+// Setup drag & drop + file selection logic
+function dmsSetupDragAndDrop() {
+  const dropZone = document.getElementById("dmsDropZone");
+  const fileInput = document.getElementById("fileInput");
+  const mergeBtn = document.getElementById("dmsMergeBtn");
+  let dmsFiles = [];
+  
+  function updateButtonState() {
+    mergeBtn.disabled = dmsFiles.length === 0;
+  }
+  
+  dropZone.addEventListener("click", () => fileInput.click());
+  
+  fileInput.addEventListener("change", (e) => {
+    dmsFiles = Array.from(e.target.files);
+    updateButtonState();
+  });
+  
+  dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("drag-over");
+  });
+  
+  dropZone.addEventListener("dragleave", (e) => {
+    dropZone.classList.remove("drag-over");
+  });
+  
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) {
+      dmsFiles = Array.from(e.dataTransfer.files);
+      updateButtonState();
+    }
+  });
+  
+  mergeBtn.addEventListener("click", () => {
+    if (dmsFiles.length === 0) return;
+    dmsMergeAndDownload(dmsFiles);
+  });
+}
+
+// call setup once DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  dmsSetupDragAndDrop();
+});
 
 
 document.querySelector('#invoiceForm').addEventListener('submit', (e) => {

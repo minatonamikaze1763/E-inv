@@ -516,7 +516,10 @@ h2.header {
   height: 200px;
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
-
+.dropzone.height {
+  height: 400px;
+  padding: 3rem 6rem;
+}
 .dropzone:hover {
   border-color: var(--accent-color);
 }
