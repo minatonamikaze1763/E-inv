@@ -16,7 +16,92 @@
   --danger-color: #dc2626;
   /* Red for delete/danger */
 }
+/* ================= DONATION SECTION ================= */
+.donate-section {
+  background: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 420px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.08);
+}
 
+/* Title */
+.donate-section h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Description text */
+.donate-section p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* QR code */
+.donate-qr {
+  width: 180px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px dashed var(--accent-color);
+  padding: 10px;
+  background: var(--bg-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* QR hover effect */
+.donate-qr:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+}
+
+/* Small thank you text */
+.donate-section small {
+  display: block;
+  margin-top: 14px;
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Optional button (if you add one later) */
+.donate-btn {
+  margin-top: 16px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.donate-btn:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 480px) {
+  .donate-section {
+    padding: 18px;
+  }
+  
+  .donate-qr {
+    width: 150px;
+  }
+  
+  .donate-section h3 {
+    font-size: 1.2rem;
+  }
+}
 .highlight {
   color: var(--accent-color);
 }
