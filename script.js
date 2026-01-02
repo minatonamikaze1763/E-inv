@@ -68,6 +68,18 @@ const actualBuyerMap = {
     "Stcd": "36",
     "Ph": 9502363435,
     "Em": null
+  },  
+  "36AAACN4165C3ZQ": {
+    "Gstin": "36AAACN4165C3ZQ",
+    "LglNm": "THE NEW INDIA ASSURANCE CO LIMITED",
+    "Addr1": "New India Assurance Company   Plot No 1,2,&3,Inner Ring Road",
+    "Addr2": "Hyderabad",
+    "Loc": "Hyderabad",
+    "Pin": 500007,
+    "Pos": "36",
+    "Stcd": "36",
+    "Ph": null,
+    "Em": null
   },
   "33AAACS7032B1ZZ": {
     Gstin: "33AAACS7032B1ZZ",
@@ -621,7 +633,7 @@ const unsortedItems = {
     isIGST: false,
     IsServc: "N"
   },
-  "IQUBE VEHICLE (local)": {
+  "EV VEHICLE (local)": {
     desc: "TVS IQUBE",
     hsn: "87112029",
     gst: 5,
@@ -635,7 +647,7 @@ const unsortedItems = {
     isIGST: true,
     IsServc: "N"
   },
-  "IQUBE VEHICLE (outstate)": {
+  "EV VEHICLE (outstate)": {
     desc: "TVS IQUBE",
     hsn: "87112029",
     gst: 5,
