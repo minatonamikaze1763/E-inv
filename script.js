@@ -80,6 +80,17 @@ const actualBuyerMap = {
     "Stcd": "36",
     "Ph": null,
     "Em": null
+  },  "36AAYCA6493L1ZN": {
+    "Gstin": "36AAYCA6493L1ZN",
+    "LglNm": "ABHINAV AUTO CRAFT PRVATE LIMITED",
+    "Addr1": "SY NO.79, 80, 81, 82 PART, PLOT NO.119 AND 120,",
+    "Addr2": "DOYENS LAKESIDE TOWNSHIP,serilingampally",
+    "Loc": "Hyderabad",
+    "Pin": 500050,
+    "Pos": "36",
+    "Stcd": "36",
+    "Ph": null,
+    "Em": null
   },
   "33AAACS7032B1ZZ": {
     Gstin: "33AAACS7032B1ZZ",
