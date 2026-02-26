@@ -91,7 +91,8 @@ const actualBuyerMap = {
     "Stcd": "36",
     "Ph": null,
     "Em": null
-  }, "36ACJPC7374G1ZI": {
+  },
+  "36ACJPC7374G1ZI": {
    "Gstin": "36ACJPC7374G1ZI",
    "LglNm": "NIGHTINGALE SCALES COMPANY",
    "Addr1": "KRISHNA MILL ROAD, 6-26-305,NEW GUNJ ROAD",
@@ -102,7 +103,19 @@ const actualBuyerMap = {
    "Stcd": "36",
    "Ph": null,
    "Em": null
- },
+ }, 
+ "36AAACN9967E6ZZ": {
+    "Gstin": "36AAACN9967E6ZZ",
+    "LglNm": "NATIONAL INSURANCE COMPANY LIMITED",
+    "Addr1": "5-8-568,JUBILEE BUILDING",
+    "Addr2": "NAMPALLY STATION ROAD",
+    "Loc": "HYDERABAD",
+    "Pin": 500001,
+    "Pos": "36",
+    "Stcd": "36",
+    "Ph": null,
+    "Em": null
+  },
   "33AAACS7032B1ZZ": {
     Gstin: "33AAACS7032B1ZZ",
     LglNm: "TVS MOTOR COMPANY LTD",
