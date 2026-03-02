@@ -74,7 +74,7 @@ function loginWithKey() {
   const { key, user } = foundUser;
   
   if (!user.isActive) {
-    status.innerHTML = "User is InActive, please contact the developer!";
+    status.innerHTML = "Your account has been suspended due to an outstanding payment. Kindly email minato.namikaze1763@gmail.com for further payment details. Account will be activated after payment.";
     return;
   }
   
@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { key, user } = foundUser;
     
     if (!user.isActive) {
-      status.innerHTML = "User is InActive, please contact the developer!";
+      status.innerHTML = "Your account has been suspended due to an outstanding payment. Kindly email minato.namikaze1763@gmail.com for further payment details. Account will be activated after payment.";
+      
       return;
     }
     
