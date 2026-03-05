@@ -77,12 +77,12 @@
     <form class="login-form">
       <h2 class="login-title">E-invoice Login</h2>
       
-      <div class="field">
+      <div class="field disabled">
         <label for="username">Dealer code</label>
         <input type="text" id="username" name="username">
       </div>
       
-      <div class="field">
+      <div class="field disabled">
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
         <p id="login-status"> </p>
@@ -91,7 +91,7 @@
       </div>
       
       <div class="field login-key-container">
-        <label for="login-key">Or Login with Key</label>
+        <label for="login-key">Login with Key</label>
         <input type="text" id="login-key" name="login-key">
         <p id="login-key-status"> </p>
         <button type="button" onclick="loginWithKey()" class="btn">Login with Key</button>

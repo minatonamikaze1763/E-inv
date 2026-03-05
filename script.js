@@ -68,7 +68,7 @@ const actualBuyerMap = {
     "Stcd": "36",
     "Ph": 9502363435,
     "Em": null
-  },  
+  },
   "36AAACN4165C3ZQ": {
     "Gstin": "36AAACN4165C3ZQ",
     "LglNm": "THE NEW INDIA ASSURANCE CO LIMITED",
@@ -80,7 +80,8 @@ const actualBuyerMap = {
     "Stcd": "36",
     "Ph": null,
     "Em": null
-  },  "36AAYCA6493L1ZN": {
+  },
+  "36AAYCA6493L1ZN": {
     "Gstin": "36AAYCA6493L1ZN",
     "LglNm": "ABHINAV AUTO CRAFT PRVATE LIMITED",
     "Addr1": "SY NO.79, 80, 81, 82 PART, PLOT NO.119 AND 120,",
@@ -93,18 +94,18 @@ const actualBuyerMap = {
     "Em": null
   },
   "36ACJPC7374G1ZI": {
-   "Gstin": "36ACJPC7374G1ZI",
-   "LglNm": "NIGHTINGALE SCALES COMPANY",
-   "Addr1": "KRISHNA MILL ROAD, 6-26-305,NEW GUNJ ROAD",
-   "Addr2": "NIZAMABAD",
-   "Loc": "NIZAMABAD",
-   "Pin": 503003,
-   "Pos": "36",
-   "Stcd": "36",
-   "Ph": null,
-   "Em": null
- }, 
- "36AAACN9967E6ZZ": {
+    "Gstin": "36ACJPC7374G1ZI",
+    "LglNm": "NIGHTINGALE SCALES COMPANY",
+    "Addr1": "KRISHNA MILL ROAD, 6-26-305,NEW GUNJ ROAD",
+    "Addr2": "NIZAMABAD",
+    "Loc": "NIZAMABAD",
+    "Pin": 503003,
+    "Pos": "36",
+    "Stcd": "36",
+    "Ph": null,
+    "Em": null
+  },
+  "36AAACN9967E6ZZ": {
     "Gstin": "36AAACN9967E6ZZ",
     "LglNm": "NATIONAL INSURANCE COMPANY LIMITED",
     "Addr1": "5-8-568,JUBILEE BUILDING",

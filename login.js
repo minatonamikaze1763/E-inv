@@ -29,7 +29,7 @@ function setSellerDetails(details) {
 
 // Save login with expiry (2 hrs)
 function saveLogin(userKey) {
-  const expiryTime = Date.now() + 12 * 60 * 60 * 1000; // 12 hrs
+  const expiryTime = Date.now() + 2 * 60 * 60 * 1000; // 2 hrs
   localStorage.setItem(
     "loginSession",
     JSON.stringify({ user: userKey, expiry: expiryTime })
@@ -42,18 +42,65 @@ function checkSession() {
   if (!session) return null;
   
   const { user, expiry } = JSON.parse(session);
+  if (!checkExpiry(user.expiry)) {
+    status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+    return null;
+  }
+  
   if (Date.now() > expiry) {
     localStorage.removeItem("loginSession"); // expired
+    
     return null;
   }
   return user;
 }
 
-function showExpiryMsg(msg) {
-  // Tab to edit
+function checkExpiry(date) {
+  if(!date) return;
+  const parts = date.split("-");
+  const expiryDate = new Date(parts[2], parts[1] - 1, parts[0]);
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  expiryDate.setHours(0, 0, 0, 0);
+  
+  return expiryDate >= today;
+}
+
+function showExpiryMsg(date) {
   const info = document.getElementById("expiry");
+  
+  // convert "01-04-2026" → Date object
+  const parts = date.split("-");
+  const expiryDate = new Date(parts[2], parts[1] - 1, parts[0]);
+  
+  const today = new Date();
+  
+  // remove time part
+  today.setHours(0, 0, 0, 0);
+  expiryDate.setHours(0, 0, 0, 0);
+  
+  const diffTime = expiryDate - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  let msg = "";
+  
+  if (diffDays < 0) {
+    msg = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";
+  }
+  
+  else if (diffDays <= 3) {
+    msg = `Your license will expire on ${date}. Please renew your license to continue using the service. The renewal fee is ₹2,500 per month. To make the payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.`;
+  }
+  
+  else {
+    msg = `Your license will expire on ${date}.`;
+  }
+  
   info.innerHTML = msg;
 }
+
+
 
 
 function loginWithKey() {
@@ -69,7 +116,10 @@ function loginWithKey() {
     if (u.keys && u.keys.includes(loginKey)) {
       foundUser = { key, user: u };
       showExpiryMsg(u.expiry);
-      saveLogin(u);
+      if (!checkExpiry(u.expiry)) {
+        status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+        return;
+      }
       break;
     }
   }
@@ -103,7 +153,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Auto-login if session valid
   const activeUser = checkSession();
   if (activeUser && users[activeUser]) {
-    console.log(activeUser)
     showExpiryMsg(users[activeUser].expiry);
     setSellerDetails(users[activeUser].details);
     loginContainer.classList.add("hidden");
@@ -126,6 +175,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (u.username === username && u.password === password) {
         foundUser = { key, user: u };
         showExpiryMsg(u.expiry);
+        if (!checkExpiry(u.expiry)) {
+          status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+          return;
+        }
         saveLogin(u);
         break;
       }

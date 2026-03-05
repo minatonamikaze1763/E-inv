@@ -105,7 +105,9 @@
 .highlight {
   color: var(--accent-color);
 }
-
+.field.disabled{
+  display: none;
+}
 /* Navbar Container */
 nav {
   background-color: var(--secondary-color);
