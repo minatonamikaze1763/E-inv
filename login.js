@@ -1,5 +1,10 @@
 // --- Users DB ---
 let users = {};
+let premium = 2500;
+
+let expiredMsg = `Your license has expired. To continue using the service, please renew your license by paying ₹${premium} per month.
+Please send the following company details to minato.namikaze1763@gmail.com:
+GSTIN, Company Name, Mobile Number, and Business Address. If possible, also attach a copy of your GST certificate. We will then share the bank details for payment.`;
 async function loadUsers() {
   try {
     const response = await fetch("users.json");
@@ -56,7 +61,7 @@ function checkSession() {
 }
 
 function checkExpiry(date) {
-  if(!date) return;
+  if (!date) return;
   const parts = date.split("-");
   const expiryDate = new Date(parts[2], parts[1] - 1, parts[0]);
   
@@ -86,11 +91,11 @@ function showExpiryMsg(date) {
   let msg = "";
   
   if (diffDays < 0) {
-    msg = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";
+    msg = "Licence expired";
   }
   
   else if (diffDays <= 3) {
-    msg = `Your license will expire on ${date}. Please renew your license to continue using the service. The renewal fee is ₹2,500 per month. To make the payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.`;
+    msg = `Your license will expire on ${date}. Please renew your license to continue using the service. The renewal fee is ₹${premium} per month. To make the payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.`;
   }
   
   else {
@@ -117,7 +122,7 @@ function loginWithKey() {
       foundUser = { key, user: u };
       showExpiryMsg(u.expiry);
       if (!checkExpiry(u.expiry)) {
-        status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+        status.innerHTML = expiredMsg;
         return;
       }
       break;
@@ -176,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         foundUser = { key, user: u };
         showExpiryMsg(u.expiry);
         if (!checkExpiry(u.expiry)) {
-          status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+          status.innerHTML = expiredMsg;
           return;
         }
         saveLogin(u);
