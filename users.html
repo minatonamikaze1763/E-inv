@@ -135,10 +135,102 @@
       margin: 0;
       line-height: 1.9;
     }
+    
+    #screenLock {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--secondary-color);
+      z-index: 9999;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto;
+    }
+    
+    /* Lock card */
+    .lock-box {
+      width: 340px;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Title */
+    .lock-box h2 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    /* Label */
+    .lock-box label {
+      font-size: 14px;
+      color: var(--text-color);
+    }
+    
+    /* Input */
+    .lock-box input {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      outline: none;
+      font-size: 14px;
+      color: var(--text-color);
+      background: var(--bg-color);
+      transition: border .2s, box-shadow .2s;
+    }
+    
+    .lock-box input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+    }
+    
+    /* Button */
+    .lock-box button {
+      width: 100%;
+      margin-top: 14px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+    
+    .lock-box button:hover {
+      background: var(--hover-color);
+    }
+    
+    .lock-box button:active {
+      transform: scale(0.98);
+    }
+    
+    /* Error message */
+    #lockStatus {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--danger-color);
+    }
   </style>
 </head>
 
 <body>
+  <div id="screenLock">
+    <div class="lock-box">
+      <h2>Access Restricted</h2>
+      <label for="lockPassword">Enter Password</label>
+      <input type="password" id="lockPassword" placeholder="Enter password">
+      <button onclick="unlockScreen()">Submit</button>
+      <p id="lockStatus"></p>
+    </div>
+  </div>
   <h1>Available Users</h1>
   <div class="user-container" id="userContainer"></div>
   <div class="note">
@@ -150,6 +242,23 @@
     </p>
   </div>
   <script>
+    const screenPassword = "1763"; // change password here
+    
+    function unlockScreen() {
+      const input = document.getElementById("lockPassword").value;
+      const status = document.getElementById("lockStatus");
+      
+      if (input === screenPassword) {
+        document.getElementById("screenLock").style.display = "none";
+      } else {
+        status.innerHTML = "Incorrect password";
+      }
+    }
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        unlockScreen();
+      }
+    });
     let users = {};
     
     async function loadUsers() {
