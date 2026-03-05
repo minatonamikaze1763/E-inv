@@ -1,6 +1,6 @@
 // --- Users DB ---
 let users = {};
-let premium = 2500;
+let premium = 999;
 
 let expiredMsg = `Your license has expired. To continue using the service, please renew your license by paying ₹${premium} per month.
 Please send the following company details to minato.namikaze1763@gmail.com:
