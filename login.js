@@ -102,7 +102,7 @@ function showExpiryMsg(date) {
   }
   
   else {
-    msg = `Your license will expire on ${date}.`;
+    msg = `Your license is active`;
   }
   
   info.innerHTML = msg;
