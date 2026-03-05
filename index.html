@@ -167,12 +167,12 @@
   </form>
   <!-- Bulk Upload Card -->
   <section class="card bulk-card" role="region" aria-labelledby="bulk-title">
-    <header class="card-header">
+    <header class="card-header disabled">
       <h3 id="bulk-title">Bulk Invoice Upload</h3>
       <p class="card-subtitle">Upload a CSV with <code>invDate,invNo, description, taxable, percentage,hsn,isService</code></p>
     </header>
     
-    <div class="card-body">
+    <div class="card-body disabled">
       <div class="field">
         <label for="buyerSelect">Buyer (applies to all rows)</label>
         <select id="bulkBuyerSelect"></select>
@@ -200,7 +200,7 @@
       </details>
     </div>
     
-    <footer class="card-footer">
+    <footer class="card-footer disabled">
       <button type="button" class="btn" onclick="generateBulkInvoices()">Generate ZIP</button>
     </footer>
     <!-- =========================
@@ -218,7 +218,7 @@
       <button id="mergeBtn" class="merge-btn" disabled>Merge & Download</button>
     </div>
     
-    <div class="json-merger-container">
+    <div class="json-merger-container disabled">
       <h3>Merge Dms JSON and generate JSON Files</h3>
       
       <!-- Drag & Drop Area -->

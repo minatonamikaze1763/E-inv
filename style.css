@@ -105,7 +105,9 @@
 .highlight {
   color: var(--accent-color);
 }
-.field.disabled{
+.field.disabled,
+.card-body.disabled,
+.disabled{
   display: none;
 }
 /* Navbar Container */
