@@ -49,6 +49,13 @@ function checkSession() {
   return user;
 }
 
+function showExpiryMsg(msg) {
+  // Tab to edit
+  const info = document.getElementById("expiry");
+  info.innerHTML = msg;
+}
+
+
 function loginWithKey() {
   const loginContainer = document.querySelector(".login-container");
   const loginKey = document.getElementById("login-key").value.trim();
@@ -61,6 +68,7 @@ function loginWithKey() {
     const u = users[key];
     if (u.keys && u.keys.includes(loginKey)) {
       foundUser = { key, user: u };
+      showExpiryMsg(u.expiry);
       saveLogin(u);
       break;
     }
@@ -95,6 +103,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Auto-login if session valid
   const activeUser = checkSession();
   if (activeUser && users[activeUser]) {
+    console.log(activeUser)
+    showExpiryMsg(users[activeUser].expiry);
     setSellerDetails(users[activeUser].details);
     loginContainer.classList.add("hidden");
   } else {
@@ -115,6 +125,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const u = users[key];
       if (u.username === username && u.password === password) {
         foundUser = { key, user: u };
+        showExpiryMsg(u.expiry);
         saveLogin(u);
         break;
       }

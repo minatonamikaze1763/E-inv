@@ -3,7 +3,8 @@
     "username": "14929",
     "password": "Sep@2025#",
     "company": "tvs",
-    "isActive": false,
+    "isActive": true,
+    "expiry": "Your license is free until April 1. Starting from April 1, a payment will be required to continue using the service.",
     "details": {
       "Gstin": "36AFHFS4680J1ZH",
       "LglNm": "SAVERA AUTOCRAFT LLP",
@@ -22,7 +23,8 @@
     "username": "14517",
     "password": "Oct@2025#",
     "company": "tvs",
-    "isActive": false,
+    "isActive": true,
+    "expiry": "Your license is free until April 1. Starting from April 1, a payment will be required to continue using the service.",
     "details": {
       "Gstin": "36AAFCL0077Q1Z1",
       "LglNm": "LAXMI AUTO AGENCIES PRIVATE LIMITED",
@@ -41,7 +43,8 @@
     "username": "14298",
     "password": "Devi@2025#",
     "company": "Royal Enfield",
-    "isActive": false,
+    "isActive": true,
+    "expiry": "Your license is free until April 1. Starting from April 1, a payment will be required to continue using the service.",
     "details": {
       "Gstin": "36AAWFD9162A1Z7",
       "LglNm": "DEVI AUTOMOBILES",
