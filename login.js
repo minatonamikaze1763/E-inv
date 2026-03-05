@@ -47,16 +47,19 @@ function checkSession() {
   if (!session) return null;
   
   const { user, expiry } = JSON.parse(session);
-  if (!checkExpiry(user.expiry)) {
-    status.innerHTML = "Your license has expired. Please renew your license to continue using the service. To make payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.";;
+  
+  // check license expiry using users object
+  if (!checkExpiry(users[user].expiry)) {
+    status.innerHTML = expiredMsg;
     return null;
   }
   
+  // check session expiry
   if (Date.now() > expiry) {
-    localStorage.removeItem("loginSession"); // expired
-    
+    localStorage.removeItem("loginSession");
     return null;
   }
+  
   return user;
 }
 
