@@ -16,6 +16,7 @@
   --danger-color: #dc2626;
   /* Red for delete/danger */
 }
+
 /* ================= DONATION SECTION ================= */
 .donate-section {
   background: var(--secondary-color);
@@ -102,14 +103,17 @@
     font-size: 1.2rem;
   }
 }
+
 .highlight {
   color: var(--accent-color);
 }
+
 .field.disabled,
 .card-body.disabled,
-.disabled{
+.disabled {
   display: none;
 }
+
 /* Navbar Container */
 nav {
   background-color: var(--secondary-color);
@@ -146,10 +150,12 @@ nav {
   font-weight: 500;
   transition: color 0.3s;
 }
+
 .nav-links a.active {
   color: var(--secondary-color);
   background: var(--accent-color);
 }
+
 .nav-links a:hover {
   color: var(--border-color);
 }
@@ -178,7 +184,7 @@ nav {
     width: 100%;
     position: absolute;
     background-color: var(--secondary-color);
-
+    
     top: 60px;
     left: 0;
     padding: 1rem 0;
@@ -266,8 +272,8 @@ h4 {
   color: #fff;
 }
 
-#login-status ,
-#login-key-status{
+#login-status,
+#login-key-status {
   color: var(--danger-color);
   line-height: 1.7rem;
 }
@@ -297,7 +303,8 @@ body {
       var(--primary-color) 0%,
       var(--accent-color) 35%,
       var(--hover-color) 100%);
-margin: 0;
+  margin: 0;
+
   body.form {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -316,6 +323,15 @@ margin: 0;
 h2,
 h3 {
   color: var(--text-color);
+}
+
+#expiry {
+  background: var(--bg-color);
+  border-radius: .7rem;
+  padding: 1rem ;
+  line-height: 1.7rem;
+  max-width: 80%;
+  margin: 1rem auto;
 }
 
 .header {
@@ -511,11 +527,13 @@ h2.header {
   border-radius: 6px;
   cursor: not-allowed;
 }
-#itemsContainer .mask h3{
-  color: var(--secondary-color);
 
+#itemsContainer .mask h3 {
+  color: var(--secondary-color);
+  
 }
-#itemsContainer .mask .icon{
+
+#itemsContainer .mask .icon {
   font-size: 6rem;
 }
 
@@ -607,10 +625,12 @@ h2.header {
   height: 200px;
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
+
 .dropzone.height {
   height: 400px;
   padding: 3rem 6rem;
 }
+
 .dropzone:hover {
   border-color: var(--accent-color);
 }
@@ -890,13 +910,15 @@ h2.header {
 
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
-.login-form {
-  width: 80%;
-}
-.login-form input{
-  width: auto;}
-
-
+  .login-form {
+    width: 80%;
+  }
+  
+  .login-form input {
+    width: auto;
+  }
+  
+  
   /* Form layout: stack columns */
   form {
     display: flex !important;
@@ -1066,4 +1088,3 @@ h2.header {
   color: var(--text-primary);
   font-size: 0.95rem;
 }
-

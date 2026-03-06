@@ -98,7 +98,8 @@ function showExpiryMsg(date) {
   }
   
   else if (diffDays <= 3) {
-    msg = `Your license will expire on ${date}. Please renew your license to continue using the service. The renewal fee is ₹${premium} per month. To make the payment, send your company details to our email id minato.namikaze1763@gmail.com and we will send the bank details.`;
+    msg = `Your license will expire on ${date}. Please renew your license to continue using the service. The renewal fee is ₹${premium} per month. To make the payment, Please send the following company details to minato.namikaze1763@gmail.com:
+GSTIN, Company Name, Mobile Number, and Business Address. If possible, also attach a copy of your GST certificate. We will then share the bank details for payment.`;
   }
   
   else {
