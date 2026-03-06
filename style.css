@@ -304,7 +304,7 @@ body {
       var(--accent-color) 35%,
       var(--hover-color) 100%);
   margin: 0;
-
+  
   body.form {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -328,7 +328,7 @@ h3 {
 #expiry {
   background: var(--bg-color);
   border-radius: .7rem;
-  padding: 1rem ;
+  padding: 1rem;
   line-height: 1.7rem;
   max-width: 80%;
   margin: 1rem auto;
@@ -677,7 +677,8 @@ h2.header {
 /* Layout helper for the card on large screens */
 .bulk-card {
   max-width: 680px;
-  margin: 1.25rem auto;
+  margin: 3rem auto;
+  margin-bottom: 8rem;
 }
 
 @media (min-width: 960px) {
