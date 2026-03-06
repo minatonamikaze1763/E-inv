@@ -2,7 +2,7 @@
 let users = {};
 let premium = 999;
 
-let expiredMsg = `Your license has expired. To continue using the service, please renew your license by paying ₹${premium} per month.
+let expiredMsg = `Due to a technical issue, Your free license has expired. To continue using the service, please renew your license by paying ₹${premium} per month.
 Please send the following company details to minato.namikaze1763@gmail.com:
 GSTIN, Company Name, Mobile Number, and Business Address. If possible, also attach a copy of your GST certificate. We will then share the bank details for payment.`;
 async function loadUsers() {
