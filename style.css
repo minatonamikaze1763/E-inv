@@ -673,7 +673,10 @@ h2.header {
 .btn:active {
   transform: translateY(1px);
 }
-
+.indicator{
+  width: max-content;
+  max-width: 400px;
+}
 /* Layout helper for the card on large screens */
 .bulk-card {
   max-width: 680px;
