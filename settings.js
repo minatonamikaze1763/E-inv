@@ -17,9 +17,21 @@ function loadHomePage() {
 const settings = {
   // Appearance
   theme: {
-    value: "light",
+    value: "aqua",
     type: "select",
     options: {
+      
+      // 14. Aqua
+      aqua: {
+        "--primary-color": "#0891b2",
+        "--secondary-color": "#cffafe",
+        "--accent-color": "#06b6d4",
+        "--hover-color": "#155e75",
+        "--border-color": "#a5f3fc",
+        "--text-color": "#083344",
+        "--bg-color": "#ecfeff",
+        "--danger-color": "#e11d48"
+      },
       // 1. Light
       light: {
         "--primary-color": "#1e3a8a",
@@ -227,17 +239,7 @@ const settings = {
         "--danger-color": "#e11d48"
       },
       
-      // 14. Aqua
-      aqua: {
-        "--primary-color": "#0891b2",
-        "--secondary-color": "#cffafe",
-        "--accent-color": "#06b6d4",
-        "--hover-color": "#155e75",
-        "--border-color": "#a5f3fc",
-        "--text-color": "#083344",
-        "--bg-color": "#ecfeff",
-        "--danger-color": "#e11d48"
-      },
+      
       
       // 15. Forest
       forest: {
